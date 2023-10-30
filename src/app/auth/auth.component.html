@@ -1,0 +1,17 @@
+<h2 class="text-center">Authentification</h2>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+    <input type="email" name="email" [(ngModel)]="collegue.email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">admin@dev.fr (ROLE_ADMINISTRATEUR, ROLE_UTILISATEUR) ou user@dev.fr (ROLE_UTILISATEUR) </small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Mot de passe</label>
+    <input type="password" name="pass" [(ngModel)]="collegue.motDePasse"  class="form-control" id="exampleInputPassword1"  aria-describedby="passwordHelp">
+    <small id="passwordHelp" class="form-text text-muted">superpass</small>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="connecter()">Se connecter</button>
+  <div *ngIf="err" class="alert alert-danger mt-1" role="alert">
+    Oops, les informations saisies ne permettent pas de vous authentifier.
+  </div>
+</form>

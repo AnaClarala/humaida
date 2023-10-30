@@ -1,0 +1,15 @@
+<h2 class="text-center">Informations techniques du backend</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Nom</th>
+    <th>Lien</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let link of links">
+    <td>{{link.name}}</td>
+    <td><a [href]="link.href">{{link.href}}</a></td>
+  </tr>
+  </tbody>
+</table>

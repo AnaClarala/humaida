@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <h1 class="display-4">Super Application</h1>
+  <ng-container *ngIf="collegueConnecte | async as col">
+    <div class="lead" *ngIf="!col.estAnonyme()">
+      <p  >Utilisateur connecté : {{col.email}}</p>
+      <p>Les rôles :</p>
+      <ul>
+        <li *ngFor="let r of col.roles">{{r}}</li>
+      </ul>
+      <button  class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</button>
+
+    </div>
+  </ng-container>
+</div>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
