@@ -23,7 +23,7 @@ export class StatutConnecteService implements CanActivate{
         map(col => !col.estAnonyme()),
         tap(estConnecte => {
           if (!estConnecte) {
-            this._router.navigate(['/auth']);
+            this._router.navigate(['/connexion']);
           }
         })
       );

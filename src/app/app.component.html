@@ -1,5 +1,9 @@
 <div class="jumbotron">
-  <h1 class="display-4">Super Application</h1>
+  <div class="row">
+    <img src="https://www.team-azerty.com/images/news/445/convoiturage.png" class="logo">
+    <h1>Super Application</h1>
+  </div>
+  
   <ng-container *ngIf="collegueConnecte | async as col">
     <div class="lead" *ngIf="!col.estAnonyme()">
       <p  >Utilisateur connecté : {{col.email}}</p>
