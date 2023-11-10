@@ -15,3 +15,11 @@
     Oops, les informations saisies ne permettent pas de vous authentifier.
   </div>
 </form>
+
+<div class="lead" *ngIf="!collegue.estAnonyme()">
+  <p  >Utilisateur connecté : {{collegue.email}}</p>
+  <p>Les rôles :</p>
+  <ul>
+    <li *ngFor="let r of collegue.roles">{{r}}</li>
+  </ul>
+</div>
