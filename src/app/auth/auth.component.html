@@ -10,7 +10,8 @@
     <input type="password" name="pass" [(ngModel)]="collegue.motDePasse"  class="form-control" id="exampleInputPassword1"  aria-describedby="passwordHelp">
     <small id="passwordHelp" class="form-text text-muted">superpass</small>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="connecter()">Se connecter</button>
+  <button type="submit" class="btn btn-primary" (click)="connecter()" >Se connecter</button>
+
   <div *ngIf="err" class="alert alert-danger mt-1" role="alert">
     Oops, les informations saisies ne permettent pas de vous authentifier.
   </div>
@@ -23,3 +24,9 @@
     <li *ngFor="let r of collegue.roles">{{r}}</li>
   </ul>
 </div>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button>
+
+
+
+

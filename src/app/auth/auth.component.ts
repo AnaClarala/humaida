@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Collegue} from './auth.domains';
 import {AuthService} from './auth.service';
 import {Router} from '@angular/router';
+import { NgbModal, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbdModalContent } from './auth.modal';
 
 /**
  * Formulaire d'authentification.
@@ -17,7 +19,7 @@ export class AuthComponent implements OnInit {
   collegue: Collegue = new Collegue({});
   err: boolean;
 
-  constructor(private authSrv: AuthService, private router: Router) { }
+  constructor(private authSrv: AuthService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
   }
@@ -34,5 +36,10 @@ export class AuthComponent implements OnInit {
         err => this.err = true
       );
   }
+
+  open() { 
+    console.log("trying to open"); 
+    const modalRef = this.modalService.open(NgbdModalContent); 
+} 
 
 }
