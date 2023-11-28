@@ -11,7 +11,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
       </button>
     </div>
     <div class="modal-body">
-      <p>Hello!</p>
+    <p>Hello</p>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark">Close</button>

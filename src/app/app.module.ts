@@ -11,7 +11,6 @@ import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ModalAuthComponent } from './modal-auth/modal-auth.component';
 
 
 @NgModule({
@@ -19,7 +18,6 @@ import { ModalAuthComponent } from './modal-auth/modal-auth.component';
     AppComponent,
     AuthComponent,
     TechComponent,
-    ModalAuthComponent
   ],
   imports: [
     BrowserModule,

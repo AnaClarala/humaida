@@ -28,17 +28,17 @@ export class AuthComponent implements OnInit {
     this.authSrv.connecter(this.collegue.email, this.collegue.motDePasse)
       .subscribe(
         // en cas de succès, affichage de la modale pour le choix du domaine : Collab, Chauffeur ou Admin
-        col => this.collegue = col,
-        // en cas de succès, redirection vers la page /tech
-        //this.router.navigate(['/tech'])
-
+        
+        col => {
+          this.collegue = col; 
+          this.open();
+        },
         // en cas d'erreur, affichage d'un message d'erreur
         err => this.err = true
       );
   }
 
   open() { 
-    console.log("trying to open"); 
     const modalRef = this.modalService.open(NgbdModalContent); 
 } 
 
