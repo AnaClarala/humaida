@@ -30,16 +30,12 @@ export class AuthComponent implements OnInit {
         // en cas de succès, affichage de la modale pour le choix du domaine : Collab, Chauffeur ou Admin
         
         col => {
-          this.collegue = col; 
-          this.open();
+          this.modalService.open(NgbdModalContent);
+          return this.collegue = col; 
         },
         // en cas d'erreur, affichage d'un message d'erreur
         err => this.err = true
       );
   }
-
-  open() { 
-    const modalRef = this.modalService.open(NgbdModalContent); 
-} 
 
 }
