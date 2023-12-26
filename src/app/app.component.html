@@ -2,7 +2,7 @@
   <h1 class="display-4">Super Application</h1>
   <ng-container *ngIf="collegueConnecte | async as col">
     <div class="lead" *ngIf="!col.estAnonyme()">
-      <p  >Utilisateur connecté : {{col.email}}</p>
+      <p>Utilisateur connecté : {{col.email}}</p>
       <p>Les rôles :</p>
       <ul>
         <li *ngFor="let r of col.roles">{{r}}</li>
@@ -13,5 +13,6 @@
   </ng-container>
 </div>
 <main class="container">
+  <app-menu *ngIf="collegueConnecte"></app-menu>
   <router-outlet></router-outlet>
 </main>
