@@ -13,6 +13,8 @@
   </ng-container>
 </div>
 <main class="container">
-  <app-menu *ngIf="collegueConnecte"></app-menu>
+  <div *ngIf="collegueConnecte | async as col">
+    <app-menu *ngIf="!col.estAnonyme()"></app-menu>
+  </div>
   <router-outlet></router-outlet>
 </main>
