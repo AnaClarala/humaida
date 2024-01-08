@@ -4,7 +4,6 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import { of, BehaviorSubject, Observable } from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
-import { CookieService } from 'ngx-cookie-service';
 
 /**
  * Collègue anonyme.
@@ -28,7 +27,7 @@ export class AuthService {
    */
   private collegueConnecteSub: BehaviorSubject<Collegue> = new BehaviorSubject(COLLEGUE_ANONYME);
 
-  constructor(private http: HttpClient, private cookieService: CookieService) {
+  constructor(private http: HttpClient) {
   }
 
   /**
@@ -95,8 +94,6 @@ export class AuthService {
     return this.http.post<Collegue>(`${environment.baseUrl}${environment.apiLogout}`, null , config)
       .pipe(
         tap(col => this.collegueConnecteSub.next(COLLEGUE_ANONYME))
-      ).pipe(
-        tap(col => this.cookieService.delete('AUTH-TOKEN'))
-      );
+      ) 
   }
 }
