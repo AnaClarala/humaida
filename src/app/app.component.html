@@ -1,15 +1,16 @@
-<div class="jumbotron">
+<div *ngIf="!collegueConnecte" class="jumbotron">
   <div class="row">
     <img src="https://www.team-azerty.com/images/news/445/convoiturage.png" class="logo">
     <h1>CollabAuto</h1>
   </div>
-  
+
   <ng-container *ngIf="collegueConnecte | async as col">
     <div class="lead" *ngIf="!col.estAnonyme()">
-      <button  class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</button>
+      <button class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</button>
     </div>
   </ng-container>
 </div>
+
 <main class="container">
   <router-outlet></router-outlet>
 </main>
