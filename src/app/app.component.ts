@@ -22,7 +22,7 @@ export class AppComponent {
    */
   seDeconnecter() {
     this.authSrv.seDeconnecter().subscribe(
-      () => this.router.navigate(['/auth'])
+      () => this.router.navigate(['/connexion'])
     );
   }
 

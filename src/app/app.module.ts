@@ -14,6 +14,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ReservationsComponent } from './Menu/reservations/reservations.component';
 import { AnnoncesComponent } from './Menu/annonces/annonces.component';
 import { StatistiquesComponent } from './Menu/statistiques/statistiques.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export const ROUTES: Routes = [
   { path: 'collaborateur/reservations', component: ReservationsComponent},
@@ -37,6 +38,7 @@ export const ROUTES: Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),
+    NgbModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
