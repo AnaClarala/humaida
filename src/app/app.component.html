@@ -12,5 +12,8 @@
 </div>
 
 <main class="container">
+  <div *ngIf="collegueConnecte | async as col">
+    <app-menu *ngIf="!col.estAnonyme()"></app-menu>
+  </div>
   <router-outlet></router-outlet>
 </main>
