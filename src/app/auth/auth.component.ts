@@ -11,7 +11,7 @@ import { NgbdModalContent } from './auth.modal';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styles: []
+  styleUrls: ['./auth.css']
 })
 export class AuthComponent implements OnInit {
 

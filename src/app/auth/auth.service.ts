@@ -94,6 +94,6 @@ export class AuthService {
     return this.http.post<Collegue>(`${environment.baseUrl}${environment.apiLogout}`, null , config)
       .pipe(
         tap(col => this.collegueConnecteSub.next(COLLEGUE_ANONYME))
-      );
+      ) 
   }
 }
