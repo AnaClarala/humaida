@@ -12,15 +12,15 @@ import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
-import { ReservationsComponent } from './Menu/reservations/reservations.component';
-import { AnnoncesComponent } from './Menu/annonces/annonces.component';
-import { StatistiquesComponent } from './Menu/statistiques/statistiques.component';
+import { ReservationsCollabComponent } from './Menu/reservations-collab/reservations-collab.component';
+import { AnnoncesCollabComponent } from './Menu/annonces-collab/annonces-collab.component';
+import { StatistiquesCollabComponent } from './Menu/statistiques-collab/statistiques-collab.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export const ROUTES: Routes = [
-  { path: 'collaborateur/reservations', component: ReservationsComponent},
-  { path: 'collaborateur/annonces', component: AnnoncesComponent},
-  { path: 'collaborateur/statistiques', component: StatistiquesComponent}
+  { path: 'collaborateur/reservations', component: ReservationsCollabComponent},
+  { path: 'collaborateur/annonces', component: AnnoncesCollabComponent},
+  { path: 'collaborateur/statistiques', component: StatistiquesCollabComponent}
 ]
 
 @NgModule({
@@ -30,9 +30,9 @@ export const ROUTES: Routes = [
     TechComponent,
     NgbdModalContent,
     MenuComponent,
-    ReservationsComponent,
-    AnnoncesComponent,
-    StatistiquesComponent
+    ReservationsCollabComponent,
+    AnnoncesCollabComponent,
+    StatistiquesCollabComponent
   ],
   imports: [
     BrowserModule,
