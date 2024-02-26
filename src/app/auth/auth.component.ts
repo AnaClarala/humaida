@@ -28,7 +28,6 @@ export class AuthComponent implements OnInit {
     this.authSrv.connecter(this.collegue.email, this.collegue.motDePasse)
       .subscribe(
         // en cas de succès, affichage de la modale pour le choix du domaine : Collab, Chauffeur ou Admin
-        
         col => {
           this.modalService.open(NgbdModalContent);
           return this.collegue = col; 

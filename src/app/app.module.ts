@@ -16,12 +16,12 @@ import { ReservationsCollabComponent } from './Menu/reservations-collab/reservat
 import { AnnoncesCollabComponent } from './Menu/annonces-collab/annonces-collab.component';
 import { StatistiquesCollabComponent } from './Menu/statistiques-collab/statistiques-collab.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PlanningChauffeurComponent } from './menu/planning-chauffeur/planning-chauffeur.component';
+import { OccupationChauffeurComponent } from './menu/occupation-chauffeur/occupation-chauffeur.component';
+import { ChauffeursAdminComponent } from './menu/chauffeurs-admin/chauffeurs-admin.component';
+import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
 
-export const ROUTES: Routes = [
-  { path: 'collaborateur/reservations', component: ReservationsCollabComponent},
-  { path: 'collaborateur/annonces', component: AnnoncesCollabComponent},
-  { path: 'collaborateur/statistiques', component: StatistiquesCollabComponent}
-]
+
 
 @NgModule({
   declarations: [
@@ -32,14 +32,17 @@ export const ROUTES: Routes = [
     MenuComponent,
     ReservationsCollabComponent,
     AnnoncesCollabComponent,
-    StatistiquesCollabComponent
+    StatistiquesCollabComponent,
+    PlanningChauffeurComponent,
+    OccupationChauffeurComponent,
+    ChauffeursAdminComponent,
+    VehiculesAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES),
     NgbModule
   ],
   providers: [{
