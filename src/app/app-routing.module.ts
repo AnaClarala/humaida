@@ -7,9 +7,9 @@ import { ChauffeursAdminComponent } from './menu/chauffeurs-admin/chauffeurs-adm
 import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
 import { OccupationChauffeurComponent } from './menu/occupation-chauffeur/occupation-chauffeur.component';
 import { PlanningChauffeurComponent } from './menu/planning-chauffeur/planning-chauffeur.component';
-import { StatistiquesCollabComponent } from './Menu/statistiques-collab/statistiques-collab.component';
-import { AnnoncesCollabComponent } from './Menu/annonces-collab/annonces-collab.component';
-import { ReservationsCollabComponent } from './Menu/reservations-collab/reservations-collab.component';
+import { StatistiquesCollabComponent } from './menu/statistiques-collab/statistiques-collab.component';
+import { AnnoncesCollabComponent } from './menu/annonces-collab/annonces-collab.component';
+import { ReservationsCollabComponent } from './menu/reservations-collab/reservations-collab.component';
 
 
 const routes: Routes =  [
