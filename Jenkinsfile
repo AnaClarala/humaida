@@ -28,10 +28,12 @@ pipeline {
     }
     post {
         success {
-           slackSend channel: '#jenkins_nantes', color: 'good', message: "Succès ! ${env.JOB_NAME} commit ${env.GIT_COMMIT} https://${GH_ORG}.github.io/${APP_REPO}/"
+           discordSend description: "${BUILD_URL}", footer: 'Succès', image: '', link: '', result: 'SUCCESS', thumbnail: '', title: "Succès ! ${env.JOB_NAME} commit ${env.GIT_COMMIT}", webhookURL: "${DISCORD_WEBHOOK_URL}"
+           slackSend channel: '#jenkins_nantes', color: 'good', message: "Succès ! ${env.JOB_NAME} commit ${env.GIT_COMMIT} (<${env.BUILD_URL}|Open>)"
         }
         failure {
-            slackSend channel: '#jenkins_nantes', color: 'danger', message: "Oops ! ${env.JOB_NAME} commit ${env.GIT_COMMIT} (<${env.BUILD_URL}|Open>)"
+           discordSend description: "${BUILD_URL}", footer: 'Échec', image: '', link: '', result: 'FAILURE', thumbnail: '', title: "Oops ! ${env.JOB_NAME} commit ${env.GIT_COMMIT}", webhookURL: "${DISCORD_WEBHOOK_URL}"
+           slackSend channel: '#jenkins_nantes', color: 'danger', message: "Oops ! ${env.JOB_NAME} commit ${env.GIT_COMMIT} (<${env.BUILD_URL}|Open>)"
         }
     }
 }
