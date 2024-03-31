@@ -3,7 +3,7 @@ import {Collegue} from './auth.domains';
 import {AuthService} from './auth.service';
 import {Router} from '@angular/router';
 import { NgbModal, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap'; 
-import { NgbdModalContent } from './auth.modal';
+import { NgbdModalContent } from '../modals/auth-modal/auth.modal';
 
 /**
  * Formulaire d'authentification.
@@ -22,6 +22,7 @@ export class AuthComponent implements OnInit {
   constructor(private authSrv: AuthService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.modalService.open(NgbdModalContent, { centered: true });
   }
 
   connecter() {
@@ -30,7 +31,7 @@ export class AuthComponent implements OnInit {
         // en cas de succès, affichage de la modale pour le choix du domaine : Collab, Chauffeur ou Admin
         
         col => {
-          this.modalService.open(NgbdModalContent);
+          this.modalService.open(NgbdModalContent, { centered: true });
           return this.collegue = col; 
         },
         // en cas d'erreur, affichage d'un message d'erreur

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AuthComponent} from './auth/auth.component';
 import {TechComponent} from './tech/tech.component';
-import { NgbdModalContent } from './auth/auth.modal';
+import { NgbdModalContent } from './modals/auth-modal/auth.modal';
 import {RouterModule, Routes} from '@angular/router';
 import {StatutConnecteService} from './auth/statut-connecte.service';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
