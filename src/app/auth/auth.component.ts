@@ -22,7 +22,6 @@ export class AuthComponent implements OnInit {
   constructor(private authSrv: AuthService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.modalService.open(NgbdModalContent, { centered: true });
   }
 
   connecter() {
@@ -31,6 +30,10 @@ export class AuthComponent implements OnInit {
         // en cas de succès, affichage de la modale pour le choix du domaine : Collab, Chauffeur ou Admin
         
         col => {
+          if (col.roles.length === 1) {
+            this.router.navigateByUrl('/collaborateur')
+            return this.collegue = col;
+          }
           this.modalService.open(NgbdModalContent, { centered: true });
           return this.collegue = col; 
         },

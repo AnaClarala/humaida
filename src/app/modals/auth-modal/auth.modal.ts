@@ -27,5 +27,4 @@ export class NgbdModalContent implements OnInit {
                  err => this.err = true
              );
     }
-
 }
