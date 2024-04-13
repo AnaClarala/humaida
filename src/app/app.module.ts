@@ -12,9 +12,9 @@ import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
-import { ReservationsComponent } from './Menu/reservations/reservations.component';
-import { AnnoncesComponent } from './Menu/annonces/annonces.component';
-import { StatistiquesComponent } from './Menu/statistiques/statistiques.component';
+import { ReservationsCollabComponent } from './Menu/reservations-collab/reservations-collab.component';
+import { AnnoncesCollabComponent } from './Menu/annonces-collab/annonces-collab.component';
+import { StatistiquesCollabComponent } from './Menu/statistiques-collab/statistiques-collab.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageCollabComponent } from './pages/page-collab/page-collab.component';
 import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.component';
@@ -33,6 +33,9 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
     PageCollabComponent,
     PageChauffeurComponent,
     PageAdminComponent
+    ReservationsCollabComponent,
+    AnnoncesCollabComponent,
+    StatistiquesCollabComponent
   ],
   imports: [
     BrowserModule,
