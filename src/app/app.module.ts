@@ -27,12 +27,9 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
     TechComponent,
     NgbdModalContent,
     MenuComponent,
-    ReservationsComponent,
-    AnnoncesComponent,
-    StatistiquesComponent,
     PageCollabComponent,
     PageChauffeurComponent,
-    PageAdminComponent
+    PageAdminComponent,
     ReservationsCollabComponent,
     AnnoncesCollabComponent,
     StatistiquesCollabComponent
