@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AuthComponent} from './auth/auth.component';
 import {TechComponent} from './tech/tech.component';
-import { NgbdModalContent } from './auth/auth.modal';
+import { NgbdModalContent } from './modals/auth-modal/auth.modal';
 import {RouterModule, Routes} from '@angular/router';
 import {StatutConnecteService} from './auth/statut-connecte.service';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
@@ -16,12 +16,9 @@ import { ReservationsCollabComponent } from './menu/reservations-collab/reservat
 import { AnnoncesCollabComponent } from './menu/annonces-collab/annonces-collab.component';
 import { StatistiquesCollabComponent } from './menu/statistiques-collab/statistiques-collab.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-export const ROUTES: Routes = [
-  { path: 'collaborateur/reservations', component: ReservationsCollabComponent},
-  { path: 'collaborateur/annonces', component: AnnoncesCollabComponent},
-  { path: 'collaborateur/statistiques', component: StatistiquesCollabComponent}
-]
+import { PageCollabComponent } from './pages/page-collab/page-collab.component';
+import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.component';
+import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +27,9 @@ export const ROUTES: Routes = [
     TechComponent,
     NgbdModalContent,
     MenuComponent,
+    PageCollabComponent,
+    PageChauffeurComponent,
+    PageAdminComponent,
     ReservationsCollabComponent,
     AnnoncesCollabComponent,
     StatistiquesCollabComponent
@@ -39,7 +39,6 @@ export const ROUTES: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES),
     NgbModule
   ],
   providers: [{

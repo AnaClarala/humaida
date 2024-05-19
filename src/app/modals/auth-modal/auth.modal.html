@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h4 class="modal-title">Choisissez votre profil :</h4>
+  <img class="btnClose" (click)="activeModal.dismiss('Cross click')" src="../../../assets/img/close.png" alt="Icone de fermeture">
+</div>
+
+<div class="modal-body">
+  <button class="btn" (click)="activeModal.close('Close click')" routerLink="/collaborateur">Collaborateur</button>
+  <button *ngIf="this.roleChauffeur" class="btn"
+    (click)="activeModal.close('Close click')" routerLink="/chauffeur">Chauffeur</button>
+  <button *ngIf="this.roleAdmin" class="btn"
+    (click)="activeModal.close('Close click')" routerLink="/admin">Administrateur</button>
+</div>
