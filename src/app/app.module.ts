@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AuthComponent} from './auth/auth.component';
 import {TechComponent} from './tech/tech.component';
-import { NgbdModalContent } from './auth/auth.modal';
+import { NgbdModalContent } from './modals/auth-modal/auth.modal';
 import {RouterModule, Routes} from '@angular/router';
 import {StatutConnecteService} from './auth/statut-connecte.service';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
@@ -20,8 +20,9 @@ import { PlanningChauffeurComponent } from './menu/planning-chauffeur/planning-c
 import { OccupationChauffeurComponent } from './menu/occupation-chauffeur/occupation-chauffeur.component';
 import { ChauffeursAdminComponent } from './menu/chauffeurs-admin/chauffeurs-admin.component';
 import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
-
-
+import { PageCollabComponent } from './pages/page-collab/page-collab.component';
+import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.component';
+import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,9 @@ import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.
     TechComponent,
     NgbdModalContent,
     MenuComponent,
+    PageCollabComponent,
+    PageChauffeurComponent,
+    PageAdminComponent,
     ReservationsCollabComponent,
     AnnoncesCollabComponent,
     StatistiquesCollabComponent,
