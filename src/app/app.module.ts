@@ -16,6 +16,10 @@ import { ReservationsCollabComponent } from './menu/reservations-collab/reservat
 import { AnnoncesCollabComponent } from './menu/annonces-collab/annonces-collab.component';
 import { StatistiquesCollabComponent } from './menu/statistiques-collab/statistiques-collab.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PlanningChauffeurComponent } from './menu/planning-chauffeur/planning-chauffeur.component';
+import { OccupationChauffeurComponent } from './menu/occupation-chauffeur/occupation-chauffeur.component';
+import { ChauffeursAdminComponent } from './menu/chauffeurs-admin/chauffeurs-admin.component';
+import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
 import { PageCollabComponent } from './pages/page-collab/page-collab.component';
 import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
@@ -32,7 +36,11 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
     PageAdminComponent,
     ReservationsCollabComponent,
     AnnoncesCollabComponent,
-    StatistiquesCollabComponent
+    StatistiquesCollabComponent,
+    PlanningChauffeurComponent,
+    OccupationChauffeurComponent,
+    ChauffeursAdminComponent,
+    VehiculesAdminComponent
   ],
   imports: [
     BrowserModule,

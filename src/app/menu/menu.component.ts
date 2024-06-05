@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,9 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private activatedRoute: ActivatedRoute, private authSrv: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  seDeconnecter() {
+    this.authSrv.seDeconnecter().subscribe();
+    this.router.navigateByUrl("/connexion");
   }
 
 }
