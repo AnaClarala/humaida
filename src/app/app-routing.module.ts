@@ -24,7 +24,7 @@ const routes: Routes =  [
   { path: 'chauffeur/planning', component: PlanningChauffeurComponent},
   { path: 'chauffeur/occupation', component: OccupationChauffeurComponent},
   { path: 'administrateur/chauffeurs', component: ChauffeursAdminComponent},
-  { path: 'administrateur/statistiques', component: VehiculesAdminComponent}
+  { path: 'administrateur/statistiques', component: VehiculesAdminComponent},
   { path: 'collaborateur', component: PageCollabComponent},
   { path: 'chauffeur', component: PageChauffeurComponent},
   { path: 'admin', component: PageAdminComponent},
