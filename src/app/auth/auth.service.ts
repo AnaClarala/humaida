@@ -26,6 +26,7 @@ export class AuthService {
    *
    */
   private collegueConnecteSub: BehaviorSubject<Collegue> = new BehaviorSubject(COLLEGUE_ANONYME);
+  statutCollab = true;
 
   constructor(private http: HttpClient) {
   }
@@ -68,7 +69,6 @@ export class AuthService {
         'Content-Type': 'application/x-www-form-urlencoded'
       })
     };
-
     return this.http.post(`${environment.baseUrl}${environment.apiLogin}`,
       new HttpParams().set('username', email).set('password', mdp), config)
       .pipe(

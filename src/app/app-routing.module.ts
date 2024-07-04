@@ -17,17 +17,17 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 
 const routes: Routes =  [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService]}, // /tech accessible uniquement si connecté
-  { path: 'connexion', component: AuthComponent},
-  { path: 'collaborateur/reservations', component: ReservationsCollabComponent},
-  { path: 'collaborateur/annonces', component: AnnoncesCollabComponent},
-  { path: 'collaborateur/statistiques', component: StatistiquesCollabComponent},
-  { path: 'chauffeur/planning', component: PlanningChauffeurComponent},
-  { path: 'chauffeur/occupation', component: OccupationChauffeurComponent},
-  { path: 'administrateur/chauffeurs', component: ChauffeursAdminComponent},
-  { path: 'administrateur/statistiques', component: VehiculesAdminComponent},
-  { path: 'collaborateur', component: PageCollabComponent},
-  { path: 'chauffeur', component: PageChauffeurComponent},
-  { path: 'admin', component: PageAdminComponent},
+  { path: 'connexion', component: AuthComponent, canActivate: [StatutConnecteService]},
+  { path: 'collaborateur/reservations', component: ReservationsCollabComponent, canActivate: [StatutConnecteService]},
+  { path: 'collaborateur/annonces', component: AnnoncesCollabComponent, canActivate: [StatutConnecteService]},
+  { path: 'collaborateur/statistiques', component: StatistiquesCollabComponent, canActivate: [StatutConnecteService]},
+  { path: 'chauffeur/planning', component: PlanningChauffeurComponent, canActivate: [StatutConnecteService]},
+  { path: 'chauffeur/occupation', component: OccupationChauffeurComponent, canActivate: [StatutConnecteService]},
+  { path: 'administrateur/chauffeurs', component: ChauffeursAdminComponent, canActivate: [StatutConnecteService]},
+  { path: 'administrateur/statistiques', component: VehiculesAdminComponent, canActivate: [StatutConnecteService]},
+  { path: 'collaborateur', component: PageCollabComponent, canActivate: [StatutConnecteService]},
+  { path: 'chauffeur', component: PageChauffeurComponent, canActivate: [StatutConnecteService]},
+  { path: 'admin', component: PageAdminComponent, canActivate: [StatutConnecteService]},
   { path: '', redirectTo: '/tech', pathMatch: 'full'}
 ];
 
