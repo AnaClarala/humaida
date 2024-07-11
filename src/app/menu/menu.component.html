@@ -1,21 +1,27 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="collaborateur/reservations">Réservations <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="collaborateur/annonces">Annonces</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="collaborateur/statistiques">Statistiques</a>
-        </li>
-      </ul>
-      <button class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="logo">
+      <img src="../../assets/img/logoRow.png" alt="Logo">
     </div>
-  </nav>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="collaborateur/reservations">Réservations</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="collaborateur/annonces">Annonces</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="collaborateur/statistiques">Statistiques</a>
+      </li>
+    </ul>
+    <div class="deco">
+      <p>Hello {{collegueCo.nom}} !</p>
+      <img src="../../assets/img/deco.png" alt="Icone de déconnexion" (click)="seDeconnecter()">
+    </div>
+  </div>
+</nav>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -42,3 +48,4 @@
       <button class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</button>
     </div>
   </nav>
+-->
