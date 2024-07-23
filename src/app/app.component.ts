@@ -13,6 +13,8 @@ export class AppComponent {
 
   collegueConnecte: Observable<Collegue>;
 
+  urlCourant: any
+
   constructor(private authSrv: AuthService, private router: Router) {
 
   }
@@ -32,7 +34,10 @@ export class AppComponent {
    * Celui lui permet de rester à jour en fonction des connexions et déconnexions.
    */
   ngOnInit(): void {
-
     this.collegueConnecte = this.authSrv.collegueConnecteObs;
+  }
+
+  recupChemin() {
+    return this.urlCourant = this.router.url
   }
 }
