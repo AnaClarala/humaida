@@ -26,7 +26,6 @@ export class AuthService {
    *
    */
   private collegueConnecteSub: BehaviorSubject<Collegue> = new BehaviorSubject(COLLEGUE_ANONYME);
-  statutCollab = true;
 
   constructor(private http: HttpClient) {
   }
@@ -95,5 +94,10 @@ export class AuthService {
       .pipe(
         tap(col => this.collegueConnecteSub.next(COLLEGUE_ANONYME))
       ) 
+  }
+
+  changeColsub(coll: Collegue) {
+    localStorage.clear()
+    localStorage.setItem('status', coll.status);
   }
 }
