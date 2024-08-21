@@ -30,7 +30,9 @@ export class AuthComponent implements OnInit {
         // en cas de succès, affichage de la modale pour le choix du domaine : Collab, Chauffeur ou Admin
         col => {
           if (col.roles.length === 1) {
-            this.router.navigateByUrl('/collaborateur')
+            this.router.navigateByUrl('/collaborateur');
+            localStorage.clear();
+            localStorage.setItem('status', 'Collaborateur')
             return this.collegue = col;
           }
           this.modalService.open(NgbdModalContent, { centered: true });

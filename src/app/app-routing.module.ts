@@ -17,7 +17,7 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 
 const routes: Routes =  [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService]}, // /tech accessible uniquement si connecté
-  { path: 'connexion', component: AuthComponent, canActivate: [StatutConnecteService]},
+  { path: 'connexion', component: AuthComponent },
   { path: 'collaborateur/reservations', component: ReservationsCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur/annonces', component: AnnoncesCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur/statistiques', component: StatistiquesCollabComponent, canActivate: [StatutConnecteService]},
@@ -27,7 +27,7 @@ const routes: Routes =  [
   { path: 'administrateur/statistiques', component: VehiculesAdminComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur', component: PageCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'chauffeur', component: PageChauffeurComponent, canActivate: [StatutConnecteService]},
-  { path: 'admin', component: PageAdminComponent, canActivate: [StatutConnecteService]},
+  { path: 'administrateur', component: PageAdminComponent, canActivate: [StatutConnecteService]},
   { path: '', redirectTo: '/tech', pathMatch: 'full'}
 ];
 

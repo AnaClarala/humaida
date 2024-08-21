@@ -10,21 +10,20 @@ import { AuthService } from '../auth/auth.service';
 })
 export class MenuComponent implements OnInit {
 
-  collegueCo: Collegue
+  collegueCo: Collegue 
+
+  storage: Storage
 
   constructor(private activatedRoute: ActivatedRoute, private authSrv: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.recupCollegueCo();
+    this.authSrv.collegueConnecteObs.subscribe(col => this.collegueCo = col);
+    this.storage = localStorage
   }
 
   seDeconnecter() {
     this.authSrv.seDeconnecter().subscribe();
     this.router.navigateByUrl("/connexion");
-  }
-
-  recupCollegueCo() {
-    return this.authSrv.collegueConnecteObs.subscribe(col => this.collegueCo = col)
   }
 
 }

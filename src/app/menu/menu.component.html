@@ -4,14 +4,29 @@
       <img src="../../assets/img/logoRow.png" alt="Logo">
     </div>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <!--Menu collaborateur-->
+      <li *ngIf="storage.getItem('status')==='Collaborateur'" class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="collaborateur/reservations">Réservations</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="storage.getItem('status')==='Collaborateur'" class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="collaborateur/annonces">Annonces</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="storage.getItem('status')==='Collaborateur'" class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="collaborateur/statistiques">Statistiques</a>
+      </li>
+      <!--Menu chauffeur-->
+      <li *ngIf="storage.getItem('status')==='Chauffeur'" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="chauffeur/planning">Planning</a>
+      </li>
+      <li *ngIf="storage.getItem('status')==='Chauffeur'" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="chauffeur/occupation">Occupation</a>
+      </li>
+      <!--Menu administrateur-->
+      <li *ngIf="storage.getItem('status')==='Administrateur'" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="administrateur/chauffeurs">Chauffeurs</a>
+      </li>
+      <li *ngIf="storage.getItem('status')==='Administrateur'" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="administrateur/statistiques">Statistiques</a>
       </li>
     </ul>
     <div class="deco">
@@ -20,32 +35,3 @@
     </div>
   </div>
 </nav>
-
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="chauffeur/planning">Planning <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="chauffeur/occupation">Occupation</a>
-        </li>
-      </ul>
-      <button class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</button>
-    </div>
-  </nav>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="administrateur/chauffeurs">Chauffeurs <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="administrateur/statistiques">Statistiques</a>
-        </li>
-      </ul>
-      <button class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</button>
-    </div>
-  </nav>
--->

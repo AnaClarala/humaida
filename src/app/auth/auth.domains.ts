@@ -4,9 +4,10 @@
 export class Collegue {
   nom: string;
   prenom: string;
-  email: string;
-  motDePasse: string;
-  roles: string[];
+  email?: string;
+  motDePasse?: string;
+  roles?: string[];
+  status?: string;
 
   constructor(params: any) {
     Object.assign(this, params);
