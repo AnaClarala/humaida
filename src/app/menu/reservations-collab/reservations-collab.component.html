@@ -1,1 +1,55 @@
-<p>reservations works!</p>
+<div class="row">
+    <h1 class="col-8">Vos réservations</h1>
+    <button class="btn btn-light coll-2 offset-2">Réserver un transport</button>
+</div>
+
+<div class="row">
+    <h2>Covoiturage</h2>
+</div>
+
+<div>
+    <h3>Réservations en cours : </h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Date/heure</th>
+                <th>Départ</th>
+                <th>Destination</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let covoit of list">
+                <td>{{covoit.depart}}</td>
+                <td>{{covoit.destination}}</td>
+                <td>{{covoit.date | date:'dd/MM/yyyy'}}</td>
+                <td><button class="btn btn-light coll-2 offset-2">Détails</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h3>Historique : </h3>
+    <div>
+        <h3>Réservations en cours : </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date/heure</th>
+                    <th>Départ</th>
+                    <th>Destination</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let covoit of listHist" >
+                    <td>{{covoit.depart}}</td>
+                    <td>{{covoit.destination}}</td>
+                    <td>{{covoit.date | date:'dd/MM/yyyy'}}</td>
+                    <td><button class="btn btn-light coll-2 offset-2">Détails</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <!--| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"  ngb-pagination [collectionSize]="{{listHist.size}}" [(pageSize)]="pagesize" [(page)]="page" aria-label="Default pagination"></ngb-pagination-->
+</div>
