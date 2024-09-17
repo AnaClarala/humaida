@@ -22,6 +22,10 @@ export class NgbdModalContent implements OnInit {
         this.authServ.collegueConnecteObs
             .subscribe(
                 col => {
+                    if (col.roles.includes('ROLE_ADMINISTRATEUR')) {
+                        col.roles.push('ROLE_CHAUFFEUR')
+                    }
+
                     this.roleAdmin = col.roles.includes('ROLE_ADMINISTRATEUR');
                     this.roleChauffeur = col.roles.includes('ROLE_CHAUFFEUR');
                 },
@@ -36,7 +40,10 @@ export class NgbdModalContent implements OnInit {
                 col => {
                     col.status = valueBtn;
                     this.collegueCourant = col;
-                    this.authServ.changeColsub(this.collegueCourant)
+                    this.authServ.saveStatus(this.collegueCourant)
+                    if (col.status!='Collaborateur') {
+                        localStorage.setItem('droit', 'ok')
+                    }
                 },
                 // en cas d'erreur, affichage d'un message d'erreur
                 err => this.err = true

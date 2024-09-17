@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-reservations',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationsCollabComponent implements OnInit {
 
-  constructor() { }
+  constructor(private srv: AuthService) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('status') != 'Collaborateur') {
+      this.srv.secuRoute()
+    }
   }
 
 }
