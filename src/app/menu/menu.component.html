@@ -31,6 +31,7 @@
     </ul>
     <div class="deco">
       <p>Hello {{collegueCo.nom}} !</p>
+      <img *ngIf="collegueCo.roles.length>1" src="../../assets/img/switch.png" alt="Icone changement de profil" (click)="openModal()">
       <img src="../../assets/img/deco.png" alt="Icone de déconnexion" (click)="seDeconnecter()">
     </div>
   </div>

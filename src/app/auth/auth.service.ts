@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import { of, BehaviorSubject, Observable } from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 /**
  * Collègue anonyme.
@@ -27,7 +28,7 @@ export class AuthService {
    */
   private collegueConnecteSub: BehaviorSubject<Collegue> = new BehaviorSubject(COLLEGUE_ANONYME);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private _router: Router) {
   }
 
   /**
@@ -96,8 +97,28 @@ export class AuthService {
       ) 
   }
 
-  changeColsub(coll: Collegue) {
+  saveStatus(coll: Collegue) {
     localStorage.clear()
     localStorage.setItem('status', coll.status);
+  }
+
+  secuRoute() {
+    switch (localStorage.getItem('status')) {
+      case 'Collaborateur':
+        this._router.navigateByUrl('/collaborateur')
+        break;
+      
+      case 'Administrateur':
+        this._router.navigateByUrl('/administrateur')
+      break;
+
+      case 'Chauffeur':
+        this._router.navigateByUrl('/chauffeur')
+      break;
+      
+      default:
+        this._router.navigateByUrl('/connexion')
+        break;
+    }
   }
 }
