@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Covoiturage, listResa1, listResa2 } from '../../mock/mock-reservations'
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-reservations',
@@ -12,9 +13,12 @@ export class ReservationsCollabComponent implements OnInit {
   @Input() listHist: Covoiturage[] = listResa2;
 
 
-  constructor() { }
+  constructor(private srv: AuthService) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('status') != 'Collaborateur') {
+      this.srv.secuRoute()
+    }
   }
 
 }

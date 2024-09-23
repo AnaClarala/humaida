@@ -19,10 +19,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlanningChauffeurComponent } from './menu/planning-chauffeur/planning-chauffeur.component';
 import { OccupationChauffeurComponent } from './menu/occupation-chauffeur/occupation-chauffeur.component';
 import { ChauffeursAdminComponent } from './menu/chauffeurs-admin/chauffeurs-admin.component';
-import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
 import { PageCollabComponent } from './pages/page-collab/page-collab.component';
 import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
+import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiques-admin.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
     PlanningChauffeurComponent,
     OccupationChauffeurComponent,
     ChauffeursAdminComponent,
-    VehiculesAdminComponent
+    StatistiquesAdminComponent
   ],
   imports: [
     BrowserModule,
