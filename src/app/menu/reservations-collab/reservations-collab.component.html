@@ -43,13 +43,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let covoit of listHist" >
+                <tr *ngFor="let covoit of listHist | paginate: { itemsPerPage: 5, currentPage: p }" >
                     <td>{{covoit.depart}}</td>
                     <td>{{covoit.destination}}</td>
-                    <td>{{covoit.date | date:'dd/MM/yyyy'}}</td>
+                    <td>{{covoit.date | date:'dd/MM/yyyy HH:mm'}}</td>
                     <td><button class="btn btn-light coll-2 offset-2">Détails</button></td>
                 </tr>
             </tbody>
         </table>
-        <!--| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"  ngb-pagination [collectionSize]="{{listHist.size}}" [(pageSize)]="pagesize" [(page)]="page" aria-label="Default pagination"></ngb-pagination-->
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

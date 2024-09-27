@@ -11,6 +11,7 @@ export class ReservationsCollabComponent implements OnInit {
 
   @Input() list: Covoiturage[] = listResa1;
   @Input() listHist: Covoiturage[] = listResa2;
+  p: number = 1;
 
 
   constructor(private srv: AuthService) { }
