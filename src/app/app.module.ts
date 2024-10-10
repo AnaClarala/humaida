@@ -23,6 +23,7 @@ import { PageCollabComponent } from './pages/page-collab/page-collab.component';
 import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiques-admin.component';
+import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiqu
     PlanningChauffeurComponent,
     OccupationChauffeurComponent,
     ChauffeursAdminComponent,
-    StatistiquesAdminComponent
+    StatistiquesAdminComponent,
+    VehiculesAdminComponent
   ],
   imports: [
     BrowserModule,
