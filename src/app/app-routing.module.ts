@@ -13,22 +13,28 @@ import { PageCollabComponent } from './pages/page-collab/page-collab.component';
 import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiques-admin.component';
+import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
 
 
 const routes: Routes =  [
+  { path: '', redirectTo: '/tech', pathMatch: 'full'},
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService]}, // /tech accessible uniquement si connecté
   { path: 'connexion', component: AuthComponent },
+  /*Collaborateur*/
   { path: 'collaborateur/reservations', component: ReservationsCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur/annonces', component: AnnoncesCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur/statistiques', component: StatistiquesCollabComponent, canActivate: [StatutConnecteService]},
+  { path: 'collaborateur', component: PageCollabComponent, canActivate: [StatutConnecteService]},
+    /*Chauffeur*/
   { path: 'chauffeur/planning', component: PlanningChauffeurComponent, canActivate: [StatutConnecteService]},
   { path: 'chauffeur/occupation', component: OccupationChauffeurComponent, canActivate: [StatutConnecteService]},
+  { path: 'chauffeur', component: PageChauffeurComponent, canActivate: [StatutConnecteService]},
+  /*Administrateur*/
   { path: 'administrateur/chauffeurs', component: ChauffeursAdminComponent, canActivate: [StatutConnecteService]},
   { path: 'administrateur/statistiques', component: StatistiquesAdminComponent, canActivate: [StatutConnecteService]},
-  { path: 'collaborateur', component: PageCollabComponent, canActivate: [StatutConnecteService]},
-  { path: 'chauffeur', component: PageChauffeurComponent, canActivate: [StatutConnecteService]},
-  { path: 'administrateur', component: PageAdminComponent, canActivate: [StatutConnecteService]},
-  { path: '', redirectTo: '/tech', pathMatch: 'full'}
+  { path: 'administrateur/vehicules', component: VehiculesAdminComponent, canActivate: [StatutConnecteService]},
+  { path: 'administrateur', component: PageAdminComponent, canActivate: [StatutConnecteService]}
+  
 ];
 
 

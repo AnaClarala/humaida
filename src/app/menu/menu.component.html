@@ -26,12 +26,16 @@
         <a class="nav-link" routerLinkActive="active" routerLink="administrateur/chauffeurs">Chauffeurs</a>
       </li>
       <li *ngIf="storage.getItem('status')==='Administrateur'" class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="administrateur/statistiques">Statistiques</a>
+        <a class="nav-link" routerLinkActive="active" routerLink="administrateur/vehicules">Véhicules</a>
+      </li>
+      <li *ngIf="storage.getItem('status')==='Administrateur'" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="administrateur/statistiques">Statistiques</a>
       </li>
     </ul>
     <div class="deco">
       <p>Hello {{collegueCo.nom}} !</p>
-      <img *ngIf="collegueCo.roles.length>1" src="../../assets/img/switch.png" alt="Icone changement de profil" (click)="openModal()">
+      <img *ngIf="collegueCo.roles.length>1" src="../../assets/img/switch.png" alt="Icone changement de profil"
+        (click)="openModal()">
       <img src="../../assets/img/deco.png" alt="Icone de déconnexion" (click)="seDeconnecter()">
     </div>
   </div>
