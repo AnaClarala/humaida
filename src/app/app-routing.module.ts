@@ -14,6 +14,7 @@ import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.co
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiques-admin.component';
 import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
+import { CreerComponent } from './menu/reservations-collab/creer/creer.component';
 
 
 const routes: Routes =  [
@@ -22,6 +23,7 @@ const routes: Routes =  [
   { path: 'connexion', component: AuthComponent },
   /*Collaborateur*/
   { path: 'collaborateur/reservations', component: ReservationsCollabComponent, canActivate: [StatutConnecteService]},
+  { path: 'collaborateur/reservations/creer', component: CreerComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur/annonces', component: AnnoncesCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur/statistiques', component: StatistiquesCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur', component: PageCollabComponent, canActivate: [StatutConnecteService]},
