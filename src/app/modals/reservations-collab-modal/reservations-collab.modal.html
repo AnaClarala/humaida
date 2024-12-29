@@ -1,0 +1,11 @@
+<div class="modal-header">
+    <h4 class="modal-title">Détails du covoiturage :</h4>
+    <img class="btnClose" (click)="activeModal.dismiss('Cross click')" src="../../../assets/img/close.png" alt="Icone de fermeture">
+  </div> 
+  <div class="modal-body">
+    Départ : {{covoit.depart}} <br>
+    Destination : {{covoit.destination}} <br>
+    Date/heure : {{ covoit.date | date:'dd/MM/yyyy HH:mm' }} <br>
+    Véhicule : {{covoit.vehicule}} <br>
+    Chauffeur : {{covoit.chauffeur}}
+  </div>
