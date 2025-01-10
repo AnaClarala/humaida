@@ -1,1 +1,21 @@
-<p>creer works!</p>
+<a routerLink="../"><<< Retour à la liste</a>
+
+<div class="titreSection">
+    <h1>Réserver un véhicule</h1>
+</div>
+
+
+<div class="contAll">
+    <button type="button" class="btn btn-link" (click)="deroulerCovoit()"><h3>Covoiturage</h3></button>
+    <div *ngIf="covoitDeroule">bkfbzjamvbm</div>
+</div>
+
+<div class="contAll">
+    <button type="button" class="btn btn-link" (click)="deroulerSociete()"><h3>Véhicule de société</h3></button>
+    <div *ngIf="societeDeroule">bkfbzjamvbm</div>
+</div>
+
+<div class="contAll">
+    <button type="button" class="btn btn-link" (click)="deroulerChauffeur()"><h3>Véhicule avec chauffeur privé</h3></button>
+    <div *ngIf="chauffeurDeroule">bkfbzjamvbm</div>
+</div>
