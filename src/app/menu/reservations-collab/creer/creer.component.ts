@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-creer',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./creer.component.scss']
 })
 export class CreerComponent implements OnInit {
-
+  model: NgbDateStruct;
   covoitDeroule = true;
   societeDeroule = false;
   chauffeurDeroule = false;

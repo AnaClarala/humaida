@@ -7,7 +7,29 @@
 
 <div class="contAll">
     <button type="button" class="btn btn-link" (click)="deroulerCovoit()"><h3>Covoiturage</h3></button>
-    <div *ngIf="covoitDeroule">bkfbzjamvbm</div>
+    <div *ngIf="covoitDeroule">
+        <form>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="depart">Adresse de départ :</label>
+                <input type="text" class="form-control" id="depart">
+              </div>
+              <div class="form-group col-6">
+                <label for="destination">Adresse de destination :</label>
+                <input type="tet" class="form-control" id="destination">
+            </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <input class="form-control" placeholder="dd-mm-aaaa"
+                           name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                    </div>
+                  </div>
+            </div>
+          </form>
+    </div>
 </div>
 
 <div class="contAll">
