@@ -1,11 +1,36 @@
 <div class="titreSection">
     <h1>Véhicules</h1>
 </div>
-<div class="contRech">
-    <label for="imat">Rechercher par Immatriculation</label>
-    <input class="inputRech" type="text">
-    <label for="imat">Rechercher par Marque</label>
-    <input class="inputRech" type="text">
-    <label for="imat">Rechercher par Categorie</label>
+<div class="contFiltre">
+    <h2>Filtrer:</h2>
+    <div class="form-check">
+        <input #imat class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" >
+        <label class="form-check-label" for="exampleRadios1">
+            Immatriculation
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" >
+        <label class="form-check-label" for="exampleRadios2">
+            Marques
+        </label>
+    </div>
+    <div class="form-check disabled">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" >
+        <label class="form-check-label" for="exampleRadios3">
+            Categorie
+        </label>
+    </div>
+    <div *ngIf="imat" class="contRech">
+        <label for="imat">Rechercher par Immatriculation:</label>
+        <input class="inputRech" type="text">
+    </div>
+</div>
+<!--<div class="contRech">
+    <label for="imat">Rechercher par Marque:</label>
     <input class="inputRech" type="text">
 </div>
+<div class="contRech">
+    <label for="imat">Rechercher par Categorie:</label>
+    <input class="inputRech" type="text">
+</div>-->
