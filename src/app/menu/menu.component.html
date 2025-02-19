@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="logo">
-      <img src="../../assets/img/logoRow.png" alt="Logo">
+      <img src="assets/img/logoRow.png" alt="Logo">
     </div>
     <ul class="navbar-nav mr-auto">
       <!--Menu collaborateur-->
@@ -34,9 +34,9 @@
     </ul>
     <div class="deco">
       <p>Hello {{collegueCo.nom}} !</p>
-      <img *ngIf="collegueCo.roles.length>1" src="../../assets/img/switch.png" alt="Icone changement de profil"
+      <img *ngIf="collegueCo.roles.length>1" src="assets/img/switch.png" alt="Icone changement de profil"
         (click)="openModal()">
-      <img src="../../assets/img/deco.png" alt="Icone de déconnexion" (click)="seDeconnecter()">
+      <img src="assets/img/deco.png" alt="Icone de déconnexion" (click)="seDeconnecter()">
     </div>
   </div>
 </nav>

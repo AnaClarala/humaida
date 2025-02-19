@@ -1,3 +1,7 @@
+p {
+    margin: 0;
+}
+
 @font-face {
     font-family: Pacifico;
     src: url('../../../assets/fonts/Pacifico-Regular.ttf') format("opentype");
@@ -11,8 +15,14 @@
 }
 
 .contRech {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    overflow: hidden;
+    input {
+        text-align: center;
+    }
 
     label {
         cursor: pointer;
@@ -22,10 +32,12 @@
         text-align: center;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 25px;
-        background-color: #fff;
+        background-color: #363B41;
+        color: #ffaa20;
+        margin: 0;
     }
 
-    .inputRech {
+    .inputRech, select {
         position: relative;
         padding: 7px;
         transition: 0.5s;
@@ -34,13 +46,112 @@
         border-left: none;
     }
 
-    .inputRech:focus {
+    select {
+        border: 2px solid black;
+        border-left: none;
+        cursor: pointer;
+    }
+
+    option {
+        cursor: pointer;
+    }
+
+    .inputRech:focus, select:focus {
         outline: none;
-        background-color: #4bc190;
-        color: white;
+    }
+
+    .search {
+        width: 35px;
+        height: 35px;
+        filter: contrast(0.0);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .search:hover {
+        filter: contrast(1);
+        transform: rotate(90deg);
     }
 }
 
 .contFiltre {
     margin-top: 50px;
+    text-align: center;
+
+    input, label {
+        cursor: pointer;
+    }
+}
+
+.contAllVehicules {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.vehicule {
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+    height: 225px;
+    overflow: hidden;
+    transition: 0.5s;
+    box-shadow: inset 0px 16px 15px 0px rgba(0,0,0,0.2);
+}
+
+.vehicule:hover {
+    height: 350px;
+    box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.2);
+}
+
+.photoV img{
+    width: 250px;
+    border-radius: 25px;
+    filter: opacity(0.4);
+    transition: 0.2s;
+}
+
+.vehicule:hover .photoV img {
+    filter: opacity(1);
+}
+
+.photoV {
+    min-height: 200px;
+}
+
+.imat {
+    text-transform: uppercase;
+}
+
+.contAjout {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    align-items: center;
+    cursor: pointer;
+    filter: contrast(0);
+    transition: 0.3s;
+}
+
+.contAjout img {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+}
+
+.contAjout:hover {
+    filter: contrast(1);
+
+    img {
+        transform: rotate(10000deg);
+        transition: 10s;
+    }
+}
+
+.alert {
+    margin-top: 30px;
+    text-align: center;
 }

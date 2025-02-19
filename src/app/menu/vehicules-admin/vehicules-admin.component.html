@@ -1,36 +1,83 @@
 <div class="titreSection">
-    <h1>Véhicules</h1>
+    <h1>Véhicules de société</h1>
 </div>
 <div class="contFiltre">
     <h2>Filtrer:</h2>
-    <div class="form-check">
-        <input #imat class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" >
-        <label class="form-check-label" for="exampleRadios1">
+    <div class="form-check form-check-inline">
+        <input #imat class="form-check-input" type="radio" (click)="imat.checked" name="inlineRadioOptions"
+            id="inlineRadio1">
+        <label class="form-check-label" for="inlineRadio1">
             Immatriculation
         </label>
     </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" >
-        <label class="form-check-label" for="exampleRadios2">
+    <div class="form-check form-check-inline">
+        <input #marq class="form-check-input" type="radio" (click)="marq.checked" name="inlineRadioOptions"
+            id="inlineRadio2">
+        <label class="form-check-label" for="inlineRadio2">
             Marques
         </label>
     </div>
-    <div class="form-check disabled">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" >
-        <label class="form-check-label" for="exampleRadios3">
-            Categorie
+    <div class="form-check form-check-inline">
+        <input #cate class="form-check-input" type="radio" (click)="cate.checked" name="inlineRadioOptions"
+            id="inlineRadio3">
+        <label class="form-check-label" for="inlineRadio3">
+            Categories
         </label>
     </div>
-    <div *ngIf="imat" class="contRech">
-        <label for="imat">Rechercher par Immatriculation:</label>
-        <input class="inputRech" type="text">
+    <div *ngIf="imat.checked" class="contRech">
+        <label for="imatr">Immatriculation:</label>
+        <input #rechImmat name="imatr" class="inputRech" type="text" placeholder="XX-000-XX">
+        <img class="search" src="assets/img/search.png" alt="Icone de recherche" (click)="findByImmat(rechImmat.value)">
+    </div>
+    <div *ngIf="marq.checked" class="contRech">
+        <label for="marque">Marque:</label>
+        <input #rechMarq name="marque" class="inputRech" type="text" placeholder="ex: Opel">
+        <img class="search" src="assets/img/search.png" alt="Icone de recherche" (click)="findByMarque(rechMarq.value)">
+    </div>
+    <div *ngIf="cate.checked" class="contRech">
+        <label for="categ">Categorie:</label>
+        <select #rechCate>
+            <option>Micro-urbaines</option>
+            <option value="MINI_CITADINES">Mini-citadines</option>
+            <option value="CITADINES_POLYVALENTES">Citadines polyvalentes</option>
+            <option value="COMPACTES">Compactes</option>
+            <option value="BERLINES_TAILLE_S">Berlines Taille S</option>
+            <option value="BERLINES_TAILLE_M">Berlines Taille M</option>
+            <option value="BERLINES_TAILLES_L">Berlines Taille L</option>
+            <option value="SUV">SUV, Tout-terrains et Pick-up</option>
+        </select>
+        <img class="search" src="assets/img/search.png" alt="Icone de recherche" (click)="findByCate(rechCate.value)">
     </div>
 </div>
-<!--<div class="contRech">
-    <label for="imat">Rechercher par Marque:</label>
-    <input class="inputRech" type="text">
+
+<div class="contAllVehicules">
+    <div *ngFor="let v of tabVehicules" class="vehicule">
+        <div class="photoV">
+            <img src="{{v.urlImage}}" alt="Photo du vehicule">
+        </div>
+        <div class="infosV">
+            <div class="imat">
+                <p>{{v.immatriculation}}</p>
+            </div>
+            <div class="marqueModele">
+                <p>{{v.marque}} - {{v.model}}</p>
+            </div>
+            <div class="cat">
+                <p>{{v.categorie}}</p>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="contRech">
-    <label for="imat">Rechercher par Categorie:</label>
-    <input class="inputRech" type="text">
-</div>-->
+<div *ngIf="marqueIntrouvable" class="alert alert-warning" role="alert">
+    <p>Aucune marque trouvée..</p>
+</div>
+<div *ngIf="immatIntrouvable" class="alert alert-warning" role="alert">
+    <p>Immatriculation inexistante..</p>
+</div>
+<div *ngIf="cateIntrouvable" class="alert alert-warning" role="alert">
+    <p>Aucun véhicule dans cette catégorie..</p>
+</div>
+
+<div class="contAjout">
+    <img src="assets/img/ajout.png" alt="Icone d'ajout">
+</div>
