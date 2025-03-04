@@ -48,6 +48,7 @@ p {
 
     select {
         border: 2px solid black;
+        padding: 7px;
         border-left: none;
         cursor: pointer;
     }
@@ -98,12 +99,12 @@ p {
     height: 225px;
     overflow: hidden;
     transition: 0.5s;
-    box-shadow: inset 0px 16px 15px 0px rgba(0,0,0,0.2);
+    box-shadow: inset 0px 0px 15px 0px rgba(0,0,0,0.2);
 }
 
 .vehicule:hover {
     height: 350px;
-    box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
 }
 
 .photoV img{
