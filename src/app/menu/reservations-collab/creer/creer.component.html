@@ -19,16 +19,19 @@
                 <input type="tet" class="form-control" id="destination">
             </div>
             </div>
-            <div class="form-row">
-                <div class="input-group">
-                    <input class="form-control" placeholder="dd-mm-aaaa"
-                           name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-                    </div>
-                  </div>
-            </div>
+            <div class="form-group col-6">
+              <label for="depart">Date de départ :</label>
+              <input required ngModel name="heureDepart" type="date" class="form-control" id="heureDepart">
+          </div>
           </form>
+    </div>
+    <div class="row">
+      <div class="col">
+        Durée du trajet : (??)
+      </div>
+      <div class="col">
+        Distance : (??)
+      </div>
     </div>
 </div>
 
