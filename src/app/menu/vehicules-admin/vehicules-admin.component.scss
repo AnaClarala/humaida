@@ -1,0 +1,47 @@
+@font-face {
+    font-family: Pacifico;
+    src: url('../../../assets/fonts/Pacifico-Regular.ttf') format("opentype");
+  }
+
+.titreSection {
+    font-family: 'Pacifico';
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.contRech {
+
+    overflow: hidden;
+
+    label {
+        cursor: pointer;
+        transition: 0.2s;
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        z-index: 10 !important;
+    }
+
+    label:hover {
+        background-color: #4bc190;
+        color: white;
+        border: 1px solid white;
+    }
+
+    .inputRech {
+        position: relative;
+        padding: 7px;
+        transition: 2s;
+        display: inline-block;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        border-left: none;
+    }
+}
+
+.contRech:hover .inputRech {
+    left: 0;
+}
