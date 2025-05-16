@@ -1,35 +1,49 @@
-<h1>Publier une annonce</h1>
-<h2>Itinéraire</h2>
-<form>
-    <div class="form-group">
-        <input type="text" class="form-control" id="depart" placeholder="Départ *">
+<div class="container">
+    <div class="row titreSection">
+        <h1>Annonces</h1>
     </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="destination" placeholder="Destination *">
+    <div class="row">
+        <h1 class="col">Publier une annonce</h1>
     </div>
-    <div class="form-group">
-        <p>Durée du trajet : (à faire)</p>
-        <p>Distance : (à faire)</p>
-    </div>
+    <div class="row">
+        <div class="col">
+            <form #annonceForm="ngForm" (ngSubmit)="onFormSubmit(annonceForm)">
+                <h2>Itinéraire</h2>
+                <div class="form-group">
+                    <input required ngModel name="depart" type="text" class="form-control" id="depart"
+                        placeholder="Départ *">
+                </div>
+                <div class="form-group">
+                    <input required ngModel name="destination" type="text" class="form-control" id="destination"
+                        placeholder="Destination *">
+                </div>
+                <div class="form-group">
+                    <p>Durée du trajet : (à faire)</p>
+                    <p>Distance : (à faire)</p>
+                </div>
+                <h2>Véhicule</h2>
+                <div class="form-group">
+                    <input required ngModel name="immatriculation" type="text" class="form-control" id="immatriculation"
+                        placeholder="Immatriculation *">
+                </div>
+                <div class="form-group">
+                    <input required ngModel name="marque" type="text" class="form-control" id="marque" placeholder="Marque *">
+                </div> 
+                <div class="form-group">
+                    <input required ngModel name="modele" type="text" class="form-control" id="modele" placeholder="Modèle *">
+                </div>
+                <div class="form-group">
+                    <input required ngModel name="nbPlacesDisponibles" type="number" class="form-control" id="nbPlacesDisponibles"
+                        placeholder="Nombre de places disponibles *">
+                </div>
 
-    <h2>Véhicule</h2>
+                <h2>Date et horaire</h2>
 
-    <div class="form-group">
-        <input type="text" class="form-control" id="immatriculation" placeholder="Immatriculation *">
+                <div class="form-group">
+                    <input required ngModel name="dateHoraire" type="datetime-local" class="form-control" id="dateHoraire">
+                </div>
+                <button class="btn btn-warning">Publier</button>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="marque" placeholder="Marque *">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="modele" placeholder="Modèle *">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="nbPlacesDisponibles" placeholder="Nombre de places disponibles *">
-    </div>
-
-    <h2>Date et horaire</h2>
-
-    <div class="form-group">
-        <input type="datetime-local" class="form-control" id="dateHoraire">
-    </div>
-</form>
+</div>
