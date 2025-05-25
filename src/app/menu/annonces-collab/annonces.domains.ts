@@ -1,11 +1,12 @@
 export class Annonce {
     depart : string;
-    destination : string;
-    immatriculation : string;
-    marque : string;
-    modele : string;
-    nbPlacesDispos : number;
-    dateHoraire : Date;
+    arrive : string;
+    marqueVoiture: string;
+    modeleVoiture : string;
+    place : number;
+    date: Date;
+    heureDepart : string;
+    collegueId: number;
 
     constructor(params: any) {
         Object.assign(this, params);

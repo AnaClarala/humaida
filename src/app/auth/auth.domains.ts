@@ -2,6 +2,7 @@
  * Collègue utilisateur de l'application.
  */
 export class Collegue {
+  id?: number;
   nom: string;
   prenom: string;
   email?: string;

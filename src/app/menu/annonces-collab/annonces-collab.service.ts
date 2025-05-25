@@ -6,6 +6,9 @@ import { Annonce } from './annonces.domains';
 import { CovoiturageFormulaire } from './annonces-collab.component'
 import { map } from 'rxjs/operators';
 import {environment} from '../../../environments/environment'
+import { AuthService } from 'src/app/auth/auth.service';
+import { Collegue } from 'src/app/auth/auth.domains';
+import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
 
 @Injectable({
     providedIn: 'root'
@@ -15,28 +18,34 @@ import {environment} from '../../../environments/environment'
 export class AnnoncesCollabService {
 
     private annonceSub: Subject<Annonce> = new Subject();
-    constructor(private http: HttpClient, private _router: Router) {
+    private collegueCourant : Collegue;
+    annonceCreee : Annonce;
+    constructor(private http: HttpClient, private _router: Router, private authService : AuthService) {
+        this.authService.collegueConnecteObs.subscribe(col => this.collegueCourant = col)
     }
 
     getAnnonceObs(): Observable<Annonce> {
         return this.annonceSub.asObservable();
     }
 
-    creerCovoiturage(covoiturageFormulaire: CovoiturageFormulaire): Observable<any> {
+    creerCovoiturage(covoiturageFormulaire: CovoiturageFormulaire): void {
         const body = {
+            collegueId: this.collegueCourant.id,
             depart:covoiturageFormulaire.depart,
-            destination: covoiturageFormulaire.destination,
-
-
+            arrive: covoiturageFormulaire.destination,
+            marqueVoiture : covoiturageFormulaire.marqueVoiture,
+            modeleVoiture : covoiturageFormulaire.modeleVoiture,
+            place : covoiturageFormulaire.place,
+            date: covoiturageFormulaire.date,
+            heureDepart: covoiturageFormulaire.heure + ":" + covoiturageFormulaire.minute + ":00"
         }
-        return this.http.post('http://localhost:8080/covoiturage', covoiturageFormulaire);
+
+        const annonce = new Annonce(body)
+        this.annonceCreee = annonce;
     }
 
-    getVehiculeId(immatriculation: string): Observable<number[]> {
-        return this.http.get<number[]>(`http://localhost:8080/vehicule?immatriculation=${immatriculation}`);
+    publierAnnonce() : Observable<Annonce> {
+        return this.http.post<Annonce>('http://localhost:8080/covoiturage', this.annonceCreee);
     }
-
-    // getChauffeurId()
-
 
 }

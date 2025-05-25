@@ -24,6 +24,7 @@ import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.co
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiques-admin.component';
 import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
+import { ConfirmationCovoiturageComponent } from './modals/confirmation-covoiturage/confirmation-covoiturage.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.
     OccupationChauffeurComponent,
     ChauffeursAdminComponent,
     StatistiquesAdminComponent,
-    VehiculesAdminComponent
+    VehiculesAdminComponent,
+    ConfirmationCovoiturageComponent
   ],
   imports: [
     BrowserModule,
