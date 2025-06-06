@@ -1,1 +1,55 @@
-<p>reservations works!</p>
+    <div class="titreSection">
+        <h1>Vos réservations</h1>
+    </div>
+    <div class="row">
+        <div class="col-3 offset-9">
+            <button class="btn btn-light" routerLink="creer">Réserver un transport</button>
+        </div>
+    </div>
+
+    <h3>Covoiturage</h3>
+
+<div>
+    <h4>Réservations en cours : </h4>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Destination</th>
+                <th>Départ</th>
+                <th>Date/heure</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let covoit of list">
+                <td>{{covoit.depart}}</td>
+                <td>{{covoit.destination}}</td>
+                <td>{{covoit.date | date:'dd/MM/yyyy HH:mm'}}</td>
+                <td><button class="btn btn-light" (click)="afficherDetails(covoit)">Détails</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Historique : </h4>
+    <table class="table">
+        <thead  class="thead-light">
+            <tr>
+                <th>Destination</th>
+                <th>Départ</th>
+                <th>Date/heure</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let covoit of listHist | paginate: { itemsPerPage: 5, currentPage: p }" >
+                <td>{{covoit.depart}}</td>
+                <td>{{covoit.destination}}</td>
+                <td>{{covoit.date | date:'dd/MM/yyyy HH:mm'}}</td>
+                <td><button class="btn btn-light" (click)="afficherDetails(covoit)">Détails</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls class="d-flex justify-content-end" (pageChange)="p = $event"></pagination-controls>
+</div>

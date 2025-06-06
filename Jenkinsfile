@@ -3,7 +3,7 @@ pipeline {
     environment {
         GH_ORG = "atelier-diginamic"
         APP_REPO = "gdt-front"
-        BACKEND_PROD = "https://transports-back.cleverapps.io"
+        BACKEND_PROD = "https://transports-back.cleverapps.io/"
     }
     stages {
         stage('install') {

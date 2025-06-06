@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,9 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiques-admin.component';
 import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
 import { ConfirmationCovoiturageComponent } from './modals/confirmation-covoiturage/confirmation-covoiturage.component';
+import { ReservationsCollabModal } from './modals/reservations-collab-modal/reservations-collab.modal';
+import { CreerComponent } from './menu/reservations-collab/creer/creer.component';
+
 
 @NgModule({
   declarations: [
@@ -44,14 +48,18 @@ import { ConfirmationCovoiturageComponent } from './modals/confirmation-covoitur
     ChauffeursAdminComponent,
     StatistiquesAdminComponent,
     VehiculesAdminComponent,
-    ConfirmationCovoiturageComponent
+    ConfirmationCovoiturageComponent,
+    ReservationsCollabModal,
+    CreerComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
