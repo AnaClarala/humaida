@@ -1,3 +1,5 @@
+import { Time } from '@angular/common';
+
 export class Annonce {
     depart : string;
     arrive : string;
@@ -5,7 +7,7 @@ export class Annonce {
     modeleVoiture : string;
     place : number;
     date: Date;
-    heureDepart : string;
+    heureDepart : Time;
     collegueId: number;
 
     constructor(params: any) {

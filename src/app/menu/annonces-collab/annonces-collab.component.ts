@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms'
 import { AnnoncesCollabService } from './annonces-collab.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationCovoiturageComponent } from 'src/app/modals/confirmation-covoiturage/confirmation-covoiturage.component';
+import { Time } from '@angular/common';
 
 
 export interface CovoiturageFormulaire {
@@ -14,8 +15,7 @@ export interface CovoiturageFormulaire {
   imageUrl?: string;
   place?: number;
   date?: Date;
-  heure?: string;
-  minute?: string;
+  horaire?: Time;
 }
 @Component({
   selector: 'app-annonces',

@@ -37,7 +37,7 @@ export class AnnoncesCollabService {
             modeleVoiture : covoiturageFormulaire.modeleVoiture,
             place : covoiturageFormulaire.place,
             date: covoiturageFormulaire.date,
-            heureDepart: covoiturageFormulaire.heure + ":" + covoiturageFormulaire.minute + ":00"
+            heureDepart: covoiturageFormulaire.horaire
         }
 
         const annonce = new Annonce(body)
@@ -45,7 +45,7 @@ export class AnnoncesCollabService {
     }
 
     publierAnnonce() : Observable<Annonce> {
-        return this.http.post<Annonce>('http://localhost:8080/covoiturage', this.annonceCreee);
+        return this.http.post<Annonce>(`${environment.baseUrl}covoiturage`, this.annonceCreee);
     }
 
 }

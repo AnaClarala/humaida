@@ -1,10 +1,7 @@
+<div class="titreSection">
+    <h1>Publier une annonce</h1>
+</div>
 <div class="container">
-    <div class="row titreSection">
-        <h1>Annonces</h1>
-    </div>
-    <div class="row">
-        <h1 class="col">Publier une annonce</h1>
-    </div>
     <div class="row">
         <div class="col">
             <form #form="ngForm">
@@ -42,43 +39,37 @@
                         Le modèle du véhicule est obligatoire.
                     </p>
                 </div>
+                <!--
                 <div class="form-group">
                     <input required [(ngModel)]=covoiturageFormulaire.imageUrl name="imageUrl" type="text"
-                        class="form-control" placeholder="URL de l'image de la voiture">
+                        class="form-control" placeholder="URL de l'image du véhicule">
                 </div>
+                -->
                 <div class="form-group" [ngClass]="{'was-validated' : place.dirty}">
-                    <input #place="ngModel" required [(ngModel)]=covoiturageFormulaire.place name="place" type="number" min="1" max="20"
-                        class="form-control" placeholder="Nombre de places disponibles *">
-                    <p *ngIf="place.dirty && place.invalid" class="invalid-feedback">
-                        Le nombre de places disponibles est obligatoire.
+                    <input #place="ngModel" required [(ngModel)]=covoiturageFormulaire.place name="place" type="number"
+                        min="1" max="20" class="form-control" placeholder="Nombre de places disponibles *">
+                    <p *ngIf="place.dirty && place.invalid || place.value > 20 || place.value < 1"
+                        class="invalid-feedback">
+                        Le nombre de places disponibles est obligatoire et doit être compris entre 1 et 20.
                     </p>
                 </div>
 
                 <h2>Date et horaire</h2>
-                <div class="form-group" [ngClass]="{'was-validated' : date.dirty}">
-                    <input #date="ngModel" required [(ngModel)]=covoiturageFormulaire.date name="date" type="date"
-                        class="form-control">
-                    <p *ngIf="place.dirty && place.invalid" class="invalid-feedback">
-                        La date de départ est obligatoire.
-                    </p>
-                </div>
-                <div class="form-group" [ngClass]="{'was-validated' : heure.dirty}">
-                    <select #heure="ngModel" required [(ngModel)]=covoiturageFormulaire.heure name="heure"
-                        class="form-control" type="number">
-                        <option *ngFor="let heure of heures">{{heure}}</option>
-                    </select>
-                    <p *ngIf="heure.dirty && heure.invalid" class="invalid-feedback">
-                        L'horaire de départ est obligatoire.
-                    </p>
-                </div>
-                <div class="form-group" [ngClass]="{'was-validated' : minute.dirty}">
-                    <select #minute="ngModel" required [(ngModel)]=covoiturageFormulaire.minute name="minute"
-                        class="form-control" type="number" value="0">
-                        <option *ngFor="let minute of minutes">{{minute}}</option>
-                    </select>
-                    <p *ngIf="minute.dirty && minute.invalid" class="invalid-feedback">
-                        L'horaire de départ est obligatoire.
-                    </p>
+                <div class="row">
+                    <div class="form-group col-4" [ngClass]="{'was-validated' : date.dirty}">
+                        <input #date="ngModel" required [(ngModel)]=covoiturageFormulaire.date name="date" type="date"
+                            class="form-control">
+                        <p *ngIf="place.dirty && place.invalid" class="invalid-feedback">
+                            La date de départ est obligatoire.
+                        </p>
+                    </div>
+                    <div class="form-group col-4" [ngClass]="{'was-validated' : horaire.dirty}">
+                        <input #horaire="ngModel"type="time" step="600" required [(ngModel)]=covoiturageFormulaire.horaire name="horaire"  class="form-control">
+                        <p *ngIf="horaire.dirty && horaire.invalid"
+                            class="invalid-feedback">
+                            L'horaire de départ est obligatoire.
+                        </p>
+                    </div>
                 </div>
                 <button class="btn btn-warning" [disabled]="form.invalid" (click)="afficherModal()">Publier</button>
             </form>
