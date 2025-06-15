@@ -54,7 +54,7 @@
                     </p>
                 </div>
 
-                <h2>Date et horaire</h2>
+                <h2>Date et horaire de départ</h2>
                 <div class="row">
                     <div class="form-group col-4" [ngClass]="{'was-validated' : date.dirty}">
                         <input #date="ngModel" required [(ngModel)]=covoiturageFormulaire.date name="date" type="date"
@@ -64,7 +64,7 @@
                         </p>
                     </div>
                     <div class="form-group col-4" [ngClass]="{'was-validated' : horaire.dirty}">
-                        <input #horaire="ngModel"type="time" step="600" required [(ngModel)]=covoiturageFormulaire.horaire name="horaire"  class="form-control">
+                        <input #horaire="ngModel"type="time" required [(ngModel)]=covoiturageFormulaire.horaire name="horaire"  class="form-control">
                         <p *ngIf="horaire.dirty && horaire.invalid"
                             class="invalid-feedback">
                             L'horaire de départ est obligatoire.
