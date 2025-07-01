@@ -12,9 +12,10 @@ import { ReservationsCollabModal } from '../../modals/reservations-collab-modal/
 })
 export class ReservationsCollabComponent implements OnInit {
 
-  @Input() list: Covoiturage[] = listResa1;
-  @Input() listHist: Covoiturage[] = listResa2;
+  list: Covoiturage[];
+  listHist: Covoiturage[];
   p: number = 1;
+  today = new Date();
 
 
   constructor(private srv: AuthService, private dataSrv: ReservationCollabService, private modalService: NgbModal) { }
@@ -23,6 +24,15 @@ export class ReservationsCollabComponent implements OnInit {
     if (localStorage.getItem('status') != 'Collaborateur') {
       this.srv.secuRoute()
     }
+    this.dataSrv.lister().subscribe(element => 
+      element.forEach(covoit => {
+        if(covoit.date>this.today){
+          this.list.push(covoit)
+        } else {
+          this.listHist.push(covoit)
+        }
+      })
+    );
   }
 
   afficherDetails(covoit: Covoiturage){
