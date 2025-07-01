@@ -25,13 +25,14 @@ export class ReservationsCollabComponent implements OnInit {
       this.srv.secuRoute()
     }
     this.dataSrv.lister().subscribe(element => 
+      {console.log(element);
       element.forEach(covoit => {
         if(covoit.date>this.today){
-          this.list.push(covoit)
+          return this.list.push(covoit)
         } else {
-          this.listHist.push(covoit)
+          return this.listHist.push(covoit)
         }
-      })
+      })}
     );
   }
 

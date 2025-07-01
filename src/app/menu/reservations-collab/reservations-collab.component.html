@@ -11,7 +11,8 @@
 
 <div>
     <h4>Réservations en cours : </h4>
-    <table class="table">
+    <div class="alert alert-warning" *ngIf="!list">Aucune réservation en cours</div>
+    <table class="table" *ngIf="list">
         <thead class="thead-light">
             <tr>
                 <th>Destination</th>
@@ -33,7 +34,8 @@
 
 <div>
     <h4>Historique : </h4>
-    <table class="table">
+    <div class="alert alert-warning" *ngIf="!listHist">Aucune réservation n'est dans votre historique</div>
+    <table class="table" *ngIf="listHist">
         <thead  class="thead-light">
             <tr>
                 <th>Destination</th>
@@ -51,6 +53,6 @@
             </tr>
         </tbody>
     </table>
-    <pagination-controls class="d-flex justify-content-end" (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls  *ngIf="listHist" class="d-flex justify-content-end" (pageChange)="p = $event"></pagination-controls>
 </div>
 
