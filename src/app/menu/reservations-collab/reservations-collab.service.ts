@@ -23,8 +23,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 
     lister(): Observable<Covoiturage[]> {
       this.authSrv.collegueConnecteObs.subscribe(col => this.me = col.id);
-      console.log(this.me);
-      return this.http.get<Covoiturage[]>(`${environment.baseUrl}covoiturage/annonce-covoiturage?id=${this.me}`);
+      return this.http.get<Covoiturage[]>(`${environment.baseUrl}covoiturage/reservation?id=${this.me}`);
     }
 
   }

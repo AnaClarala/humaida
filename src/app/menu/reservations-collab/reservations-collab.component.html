@@ -11,12 +11,12 @@
 
 <div>
     <h4>Réservations en cours : </h4>
-    <div class="alert alert-warning" *ngIf="!list">Aucune réservation en cours</div>
-    <table class="table" *ngIf="list">
+    <div class="alert alert-warning" *ngIf="list.length===0">Aucune réservation en cours</div>
+    <table class="table" *ngIf="list.length!==0">
         <thead class="thead-light">
             <tr>
-                <th>Destination</th>
                 <th>Départ</th>
+                <th>Destination</th>
                 <th>Date/heure</th>
                 <th> </th>
             </tr>
@@ -24,8 +24,8 @@
         <tbody>
             <tr *ngFor="let covoit of list">
                 <td>{{covoit.depart}}</td>
-                <td>{{covoit.destination}}</td>
-                <td>{{covoit.date | date:'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{covoit.arrive}}</td>
+                <td>{{covoit.date | date:'dd/MM/yyyy'}} {{covoit.heureDepart}}</td>
                 <td><button class="btn btn-light" (click)="afficherDetails(covoit)">Détails</button></td>
             </tr>
         </tbody>
@@ -34,21 +34,21 @@
 
 <div>
     <h4>Historique : </h4>
-    <div class="alert alert-warning" *ngIf="!listHist">Aucune réservation n'est dans votre historique</div>
-    <table class="table" *ngIf="listHist">
+    <div class="alert alert-warning" *ngIf="listHist.length===0">Aucune réservation n'est dans votre historique</div>
+    <table class="table" *ngIf="listHist.length!==0">
         <thead  class="thead-light">
             <tr>
-                <th>Destination</th>
                 <th>Départ</th>
+                <th>Destination</th>
                 <th>Date/heure</th>
                 <th> </th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let covoit of listHist | paginate: { itemsPerPage: 5, currentPage: p }" >
-                <td>{{covoit.depart}}</td>
-                <td>{{covoit.destination}}</td>
-                <td>{{covoit.date | date:'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{covoit.depart | titlecase}}</td>
+                <td>{{covoit.arrive | titlecase}}</td>
+                <td>{{covoit.date | date:'dd/MM/yyyy'}} {{covoit.heureDepart}}</td>
                 <td><button class="btn btn-light" (click)="afficherDetails(covoit)">Détails</button></td>
             </tr>
         </tbody>
