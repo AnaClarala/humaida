@@ -26,7 +26,7 @@ export class ReservationsCollabComponent implements OnInit {
     }
     this.dataSrv.lister().subscribe(element => 
       element.forEach(covoit => {
-        if(covoit.date>this.today){
+        if(covoit.date<this.today){
           return this.list.push(covoit)
         } else {
           return this.listHist.push(covoit)
