@@ -23,8 +23,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let covoit of list">
-                <td>{{covoit.depart}}</td>
-                <td>{{covoit.arrive}}</td>
+                <td>{{covoit.depart | titlecase}}</td>
+                <td>{{covoit.arrive | titlecase}}</td>
                 <td>{{covoit.date | date:'dd/MM/yyyy'}} {{covoit.heureDepart}}</td>
                 <td><button class="btn btn-light" (click)="afficherDetails(covoit)">Détails</button></td>
             </tr>
@@ -53,6 +53,6 @@
             </tr>
         </tbody>
     </table>
-    <pagination-controls  *ngIf="listHist" class="d-flex justify-content-end" (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls  *ngIf="listHist.length!==0" class="d-flex justify-content-end" (pageChange)="p = $event"></pagination-controls>
 </div>
 
