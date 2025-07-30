@@ -3,9 +3,9 @@
     <img class="btnClose" (click)="activeModal.dismiss('Cross click')" src="../../../assets/img/close.png" alt="Icone de fermeture">
   </div> 
   <div class="modal-body">
-    Départ : {{covoit.depart}} <br>
-    Destination : {{covoit.destination}} <br>
-    Date/heure : {{ covoit.date | date:'dd/MM/yyyy HH:mm' }} <br>
-    Véhicule : {{covoit.vehicule}} <br>
-    Chauffeur : {{covoit.chauffeur}}
+    Départ : {{covoit.depart | titlecase}} <br>
+    Destination : {{covoit.arrive | titlecase}} <br>
+    Date/heure : {{ covoit.date | date:'dd/MM/yyyy' }} {{covoit.heureDepart}}<br>
+    Véhicule : {{covoit.marqueVoiture}} {{covoit.modeleVoiture}}<br>
+    Chauffeur : {{covoit.collegue.nom}} {{covoit.collegue.prenom}}
   </div>
