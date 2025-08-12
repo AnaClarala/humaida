@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import { AdressesService } from 'src/app/services/adresses.service';
+
 
 @Component({
   selector: 'app-creer',
@@ -12,7 +14,10 @@ export class CreerComponent implements OnInit {
   societeDeroule = false;
   chauffeurDeroule = false;
 
-  constructor() { }
+  depart: string;
+  listAdresse: string[];
+
+  constructor(private adressesSrv: AdressesService) { }
 
   ngOnInit(): void {
   }
@@ -33,5 +38,16 @@ export class CreerComponent implements OnInit {
     this.chauffeurDeroule = false;
     this.societeDeroule = true;
     this.covoitDeroule = false;
+  }
+
+  afficherListe(){
+    this.adressesSrv.getAdresseBDD(this.depart).subscribe(data => { 
+      const tableAdresses: string[] =[];
+      data.features.forEach(element => {
+        tableAdresses.push(element.properties.name+", "+element.properties.postcode+" "+element.properties.city);
+      });
+      this.listAdresse=tableAdresses;
+      console.log(this.listAdresse);
+    })
   }
 }

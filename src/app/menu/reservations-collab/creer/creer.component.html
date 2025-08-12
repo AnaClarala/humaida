@@ -8,11 +8,11 @@
 <div class="contAll">
     <button type="button" class="btn btn-link" (click)="deroulerCovoit()"><h3>Covoiturage</h3></button>
     <div *ngIf="covoitDeroule">
-        <form>
+        <form  #etatForm="ngForm">
             <div class="form-row">
               <div class="form-group col-6">
                 <label for="depart">Adresse de départ :</label>
-                <input type="text" class="form-control" id="depart">
+                <input type="text" class="form-control"[(ngModel)]="depart" name="depart" (keyup)="afficherListe()">
               </div>
               <div class="form-group col-6">
                 <label for="destination">Adresse de destination :</label>
