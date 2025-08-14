@@ -51,7 +51,7 @@
 </div>
 
 <div class="contAllVehicules">
-    <div *ngFor="let v of tabVehicules" class="vehicule">
+    <div #voiture *ngFor="let v of tabVehicules" class="vehicule" (click)="toggle(voiture)">
         <div class="photoV">
             <img src="{{v.urlImage}}" alt="Photo du vehicule">
         </div>
@@ -79,5 +79,5 @@
 </div>
 
 <div class="contAjout">
-    <img src="assets/img/ajout.png" alt="Icone d'ajout">
+    <img src="assets/img/ajout.png" alt="Icone d'ajout" (click)="ajouterVehicule()">
 </div>

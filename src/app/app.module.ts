@@ -27,6 +27,7 @@ import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiqu
 import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
 import { ReservationsCollabModal } from './modals/reservations-collab-modal/reservations-collab.modal';
 import { CreerComponent } from './menu/reservations-collab/creer/creer.component';
+import { CreerVehiculeModalComponent } from './modals/creer-vehicule-modal/creer-vehicule-modal.modal';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CreerComponent } from './menu/reservations-collab/creer/creer.component
     StatistiquesAdminComponent,
     VehiculesAdminComponent,
     ReservationsCollabModal,
-    CreerComponent
+    CreerComponent,
+    CreerVehiculeModalComponent,
   ],
   imports: [
     BrowserModule,

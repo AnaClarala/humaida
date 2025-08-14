@@ -1,8 +1,10 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Vehicule } from 'src/app/entite/Vehicule';
+import { CreerVehiculeModalComponent } from 'src/app/modals/creer-vehicule-modal/creer-vehicule-modal.modal';
 import { AdminService } from 'src/app/services/admin.service';
 import { environment } from 'src/environments/environment';
 
@@ -19,7 +21,7 @@ export class VehiculesAdminComponent implements OnInit {
   immatIntrouvable = false;
   cateIntrouvable = false;
 
-  constructor(private srv: AuthService, private adminService: AdminService) { }
+  constructor(private srv: AuthService, private adminService: AdminService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('status') != 'Administrateur') {
@@ -62,6 +64,14 @@ export class VehiculesAdminComponent implements OnInit {
         this.cateIntrouvable = true
       }
     })
+  }
+
+  toggle(elem) {
+    elem.classList.toggle("voitureSelect");
+  }
+
+  ajouterVehicule() {
+    this.modalService.open(CreerVehiculeModalComponent, { centered: true });
   }
 
 }

@@ -1,0 +1,72 @@
+<div class="modal-header">
+    <h4 class="modal-title">Ajouter un véhicule :</h4>
+    <img class="btnClose" (click)="activeModal.dismiss('Cross click')" src="assets/img/close.png"
+        alt="Icone de fermeture">
+</div>
+<div class="modal-body">
+    <div *ngIf="erreurTechnique" class="alert alert-danger">
+        <p>Oops.. Erreur lors de l'envoi</p>
+    </div>
+    <form #form="ngForm">
+        <div class="form-group" [ngClass]="{ 'was-validated' : immat.dirty}">
+            <label for="immatriculation">Immatriculation</label>
+            <input #immat="ngModel" pattern="^[A-Z]{2}-[0-9]{3}-[A-Z]{2}$" [(ngModel)]="newVehicule.immatriculation" type="text" class="form-control" name="immatriculation" placeholder="XX-000-XX" required>
+            <div *ngIf="immat.dirty && immat.invalid"  class="invalid-feedback">
+                Deux lettres, trois chiffres et deux lettres, les trois
+                parties étant séparées par des tirets !
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'was-validated' : marque.dirty}">
+            <label for="marque">Marque</label> 
+            <input #marque="ngModel" [(ngModel)]="newVehicule.marque" type="text" class="form-control" name="marque" placeholder="ex: Renault" required>
+            <div *ngIf="marque.dirty && marque.invalid"  class="invalid-feedback">
+                La marque est obligatoire !
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'was-validated' : modele.dirty}">
+            <label for="modele">Modèle</label>
+            <input #modele="ngModel" [(ngModel)]="newVehicule.model" type="text" class="form-control" name="modele" placeholder="ex: Clio" required>
+            <div *ngIf="modele.dirty && modele.invalid"  class="invalid-feedback">
+                Le modèle est obligatoire !
+            </div>
+        </div>
+       
+        <label>Catégorie:</label>
+        <div class="form-group" [ngClass]="{ 'was-validated' : categorie.dirty}">
+            <select #categorie="ngModel" [(ngModel)]="newVehicule.categorie" name="categorie" class="form-control" required>
+                <option>Micro-urbaines</option>
+                <option value="MINI_CITADINES">Mini-citadines</option>
+                <option value="CITADINES_POLYVALENTES">Citadines polyvalentes</option>
+                <option value="COMPACTES">Compactes</option>
+                <option value="BERLINES_TAILLE_S">Berlines Taille S</option>
+                <option value="BERLINES_TAILLE_M">Berlines Taille M</option>
+                <option value="BERLINES_TAILLES_L">Berlines Taille L</option>
+                <option value="SUV">SUV, Tout-terrains et Pick-up</option>
+            </select>
+            <div *ngIf="modele.dirty && modele.invalid"  class="invalid-feedback">
+                La catégorie est obligatoire !
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'was-validated' : nbPlaces.dirty}">
+            <label for="places">Nombre de places</label>
+            <input #nbPlaces="ngModel" type="number" [(ngModel)]="newVehicule.nbr_places" class="form-control" name="places" placeholder="ex: 5"  min="1" max="20" required>
+            <div *ngIf="nbPlaces.dirty && nbPlaces.invalid || nbPlaces.value > 20 || nbPlaces.value<1"  class="invalid-feedback">
+                Le nombre de places est obligatoire ! Mininum 1, maximum 20 !
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'was-validated' : photo.dirty}">
+            <label for="photo">Photo</label>
+            <input #photo="ngModel" type="text" [(ngModel)]="newVehicule.urlImage" class="form-control" name="photo" placeholder="ex: https://exemple.com" required>
+            <div *ngIf="photo.dirty && photo.invalid"  class="invalid-feedback">
+                L'url de la photo est obligatoire !
+            </div>
+        </div>
+
+        <button [disabled]="form.invalid" class="btn btn-dark" (click)="submitVehicule()">Ajouter</button>
+    </form>
+</div>
+
