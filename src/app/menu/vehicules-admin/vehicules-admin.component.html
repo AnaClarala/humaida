@@ -43,17 +43,28 @@
             <option value="COMPACTES">Compactes</option>
             <option value="BERLINES_TAILLE_S">Berlines Taille S</option>
             <option value="BERLINES_TAILLE_M">Berlines Taille M</option>
-            <option value="BERLINES_TAILLES_L">Berlines Taille L</option>
+            <option value="BERLINES_TAILLE_L">Berlines Taille L</option>
             <option value="SUV">SUV, Tout-terrains et Pick-up</option>
         </select>
         <img class="search" src="assets/img/search.png" alt="Icone de recherche" (click)="findByCate(rechCate.value)">
     </div>
 </div>
+<div *ngIf="marqueIntrouvable" class="alert alert-warning" role="alert">
+    <p>Aucune marque trouvée..</p>
+</div>
+<div *ngIf="immatIntrouvable" class="alert alert-warning" role="alert">
+    <p>Immatriculation inexistante..</p>
+</div>
+<div *ngIf="cateIntrouvable" class="alert alert-warning" role="alert">
+    <p>Aucun véhicule dans cette catégorie..</p>
+</div>
 
 <div class="contAllVehicules">
     <div #voiture *ngFor="let v of tabVehicules" class="vehicule" (click)="toggle(voiture)">
         <div class="photoV">
-            <img src="{{v.urlImage}}" alt="Photo du vehicule">
+            <img src="{{v.urlImage}}"
+                onError="this.onerror=null;this.src='https://www.sciencesetavenir.fr/assets/img/2015/10/12/cover-r4x3w1000-57e174ba44171-terrafugia_6.jpg';"
+                alt="Photo du vehicule">
         </div>
         <div class="infosV">
             <div class="imat">
@@ -67,15 +78,6 @@
             </div>
         </div>
     </div>
-</div>
-<div *ngIf="marqueIntrouvable" class="alert alert-warning" role="alert">
-    <p>Aucune marque trouvée..</p>
-</div>
-<div *ngIf="immatIntrouvable" class="alert alert-warning" role="alert">
-    <p>Immatriculation inexistante..</p>
-</div>
-<div *ngIf="cateIntrouvable" class="alert alert-warning" role="alert">
-    <p>Aucun véhicule dans cette catégorie..</p>
 </div>
 
 <div class="contAjout">

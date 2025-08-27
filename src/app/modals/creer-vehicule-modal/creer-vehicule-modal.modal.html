@@ -52,7 +52,7 @@
 
         <div class="form-group" [ngClass]="{ 'was-validated' : nbPlaces.dirty}">
             <label for="places">Nombre de places</label>
-            <input #nbPlaces="ngModel" type="number" [(ngModel)]="newVehicule.nbr_places" class="form-control" name="places" placeholder="ex: 5"  min="1" max="20" required>
+            <input #nbPlaces="ngModel" type="number" [(ngModel)]="newVehicule.places" class="form-control" name="places" placeholder="ex: 5"  min="1" max="20" required>
             <div *ngIf="nbPlaces.dirty && nbPlaces.invalid || nbPlaces.value > 20 || nbPlaces.value<1"  class="invalid-feedback">
                 Le nombre de places est obligatoire ! Mininum 1, maximum 20 !
             </div>
@@ -60,7 +60,7 @@
 
         <div class="form-group" [ngClass]="{ 'was-validated' : photo.dirty}">
             <label for="photo">Photo</label>
-            <input #photo="ngModel" type="text" [(ngModel)]="newVehicule.urlImage" class="form-control" name="photo" placeholder="ex: https://exemple.com" required>
+            <input #photo="ngModel" type="text" [(ngModel)]="newVehicule.imageUrl" class="form-control" name="photo" placeholder="ex: https://exemple.com" required>
             <div *ngIf="photo.dirty && photo.invalid"  class="invalid-feedback">
                 L'url de la photo est obligatoire !
             </div>

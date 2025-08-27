@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Vehicule } from 'src/app/entite/Vehicule';
 import { AdminService } from 'src/app/services/admin.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-creer-vehicule-modal',
@@ -15,7 +17,7 @@ export class CreerVehiculeModalComponent implements OnInit {
   toutOk = false;
   erreurTechnique = false;
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private adminSrv: AdminService) { }
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private adminSrv: AdminService, private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +25,7 @@ export class CreerVehiculeModalComponent implements OnInit {
   submitVehicule() {
     this.adminSrv.posterVehicule(this.newVehicule).subscribe(
       vehi => {
+        this.adminSrv.addToSub(vehi)
         this.toutOk = true
         this.activeModal.close()
       }, 

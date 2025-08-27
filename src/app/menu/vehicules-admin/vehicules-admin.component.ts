@@ -1,12 +1,9 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Vehicule } from 'src/app/entite/Vehicule';
 import { CreerVehiculeModalComponent } from 'src/app/modals/creer-vehicule-modal/creer-vehicule-modal.modal';
 import { AdminService } from 'src/app/services/admin.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-vehicules-admin',
@@ -21,13 +18,27 @@ export class VehiculesAdminComponent implements OnInit {
   immatIntrouvable = false;
   cateIntrouvable = false;
 
-  constructor(private srv: AuthService, private adminService: AdminService, private modalService: NgbModal) { }
+  constructor(private srv: AuthService, private adminService: AdminService, private modalService: NgbModal) {
+    this.adminService.recupererAllVehicules().subscribe(
+      vBack =>
+        vBack.forEach(vehicule => {
+          this.adminService.addToSub(vehicule)
+        })
+    )
+  }
 
   ngOnInit(): void {
     if (localStorage.getItem('status') != 'Administrateur') {
       this.srv.secuRoute()
     }
-    this.adminService.recupererAllVehicules().subscribe(vBack => this.tabVehicules = vBack)
+    /*this.adminService.subscibeToVehiculesSub().subscribe(vObsTab => this.tabVehicules.push(vObsTab))*/
+    const tabVehi = []
+
+    this.adminService.subscibeToVehiculesSub().subscribe(vObsTab => {
+      tabVehi.push(vObsTab)
+    })
+
+    this.tabVehicules = tabVehi;
   }
 
   findByImmat(immatEntree) {
@@ -36,7 +47,7 @@ export class VehiculesAdminComponent implements OnInit {
       this.immatIntrouvable = false
       this.cateIntrouvable = false
       this.tabVehicules = vBack
-      if (vBack.length<1) {
+      if (vBack.length < 1) {
         this.immatIntrouvable = true
       }
     })
@@ -48,7 +59,7 @@ export class VehiculesAdminComponent implements OnInit {
       this.immatIntrouvable = false
       this.cateIntrouvable = false
       this.tabVehicules = vBack
-      if (vBack.length<1) {
+      if (vBack.length < 1) {
         this.marqueIntrouvable = true
       }
     })
@@ -60,7 +71,7 @@ export class VehiculesAdminComponent implements OnInit {
       this.immatIntrouvable = false
       this.cateIntrouvable = false
       this.tabVehicules = vBack
-      if (vBack.length<1) {
+      if (vBack.length < 1) {
         this.cateIntrouvable = true
       }
     })

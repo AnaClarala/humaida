@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Vehicule } from '../entite/Vehicule';
@@ -9,6 +9,8 @@ import { Vehicule } from '../entite/Vehicule';
   providedIn: 'root'
 })
 export class AdminService {
+
+  vehiculesSubject = new Subject<Vehicule>();
 
   constructor(private http: HttpClient) { }
 
@@ -30,5 +32,13 @@ export class AdminService {
 
   posterVehicule(vehiculeAPoster: Vehicule): Observable<Vehicule> {
     return this.http.post<Vehicule>(`${environment.baseUrl}vehicule`, vehiculeAPoster)
+  }
+
+  addToSub(v:Vehicule): void {
+    this.vehiculesSubject.next(v)
+  }
+
+  subscibeToVehiculesSub(): Observable<Vehicule> {
+    return this.vehiculesSubject.asObservable()
   }
 }

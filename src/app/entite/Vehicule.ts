@@ -2,9 +2,9 @@ export class Vehicule {
     id?: number
     marque?: string
     model?: string
-    nbr_places?: number
+    places?: number
     immatriculation?: string
     categorie?: string
-    etat?: string
-    urlImage?: string
+    status?: string
+    imageUrl?: string
 }
