@@ -4,7 +4,7 @@ p {
 
 @font-face {
     font-family: Pacifico;
-    src: url('../../../assets/fonts/Pacifico-Regular.ttf') format("opentype");
+    src: url('/assets/fonts/Pacifico-Regular.ttf') format("opentype");
   }
 
 .titreSection {
@@ -98,28 +98,25 @@ p {
     cursor: pointer;
     height: 225px;
     overflow: hidden;
-    transition: 0.5s;
+    transition: 0.2s;
     box-shadow: inset 0px 0px 15px 0px rgba(0,0,0,0.2);
+    filter: opacity(0.4);
 }
 
 .vehicule:hover {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    filter: opacity(1);
 }
 
 .voitureSelect {
     height: 350px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    filter: opacity(1);
 }
 
 .photoV img{
     width: 250px;
     border-radius: 25px;
-    filter: opacity(0.4);
-    transition: 0.2s;
-}
-
-.vehicule:hover .photoV img {
-    filter: opacity(1);
 }
 
 .photoV {

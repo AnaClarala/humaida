@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -12,7 +13,7 @@ export class AdminService {
 
   vehiculesSubject = new Subject<Vehicule>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _router: Router) { }
 
   recupererAllVehicules(): Observable<Vehicule[]> {
     return this.http.get<Vehicule[]>(`${environment.baseUrl}vehicule`)
@@ -40,5 +41,9 @@ export class AdminService {
 
   subscibeToVehiculesSub(): Observable<Vehicule> {
     return this.vehiculesSubject.asObservable()
+  }
+
+  pageDetails(idVehicule) {
+    this._router.navigateByUrl(`/administrateur/vehicules/${idVehicule}`)
   }
 }

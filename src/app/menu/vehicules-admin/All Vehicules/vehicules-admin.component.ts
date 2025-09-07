@@ -19,19 +19,29 @@ export class VehiculesAdminComponent implements OnInit {
   cateIntrouvable = false;
 
   constructor(private srv: AuthService, private adminService: AdminService, private modalService: NgbModal) {
-    this.adminService.recupererAllVehicules().subscribe(
-      vBack =>
-        vBack.forEach(vehicule => {
-          this.adminService.addToSub(vehicule)
-        })
-    )
   }
 
   ngOnInit(): void {
     if (localStorage.getItem('status') != 'Administrateur') {
       this.srv.secuRoute()
     }
-    /*this.adminService.subscibeToVehiculesSub().subscribe(vObsTab => this.tabVehicules.push(vObsTab))*/
+    this.noFilter()
+
+  }
+
+  noFilter(cat?, marq?, imat?) {
+    if (cat && marq && imat) {
+      cat.checked = false;
+      marq.checked = false;
+      imat.checked = false;
+    }
+    this.adminService.recupererAllVehicules().subscribe(
+      vBack =>
+        vBack.forEach(vehicule => {
+          this.adminService.addToSub(vehicule)
+        })
+    )
+
     const tabVehi = []
 
     this.adminService.subscibeToVehiculesSub().subscribe(vObsTab => {
@@ -83,6 +93,10 @@ export class VehiculesAdminComponent implements OnInit {
 
   ajouterVehicule() {
     this.modalService.open(CreerVehiculeModalComponent, { centered: true });
+  }
+
+  goDetails(idVehicule) {
+    this.adminService.pageDetails(idVehicule);
   }
 
 }
