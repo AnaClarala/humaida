@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h4 class="modal-title">Confirmation de votre covoiturage.</h4>
+    <img class="btnClose" (click)="activeModal.dismiss('Cross click')" src="../../../assets/img/close.png"
+        alt="Icone de fermeture">
+</div>
+<div class="modal-body">
+    <p>Depart : {{annonceCreee.depart}}</p>
+    <p>Destination : {{annonceCreee.arrive}}</p>
+    <p>Marque du véhicule : {{annonceCreee.marqueVoiture}}</p>
+    <p>Modèle du véhicule : {{annonceCreee.modeleVoiture}}</p>
+    <p>Nombre de places disponibles : {{annonceCreee.place}}</p>
+    <p>Date : {{annonceCreee.date}}</p>
+    <p>Horaire : {{annonceCreee.heureDepart}}</p>
+    <button class="btn btn-dark" (click)="activeModal.dismiss('Cross click')">Annuler</button>
+    <button class="btn btn-warning" (click)="publierAnnonce(); activeModal.dismiss('Cross click')">Confirmer</button>
+</div>

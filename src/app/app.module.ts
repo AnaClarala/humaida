@@ -25,10 +25,12 @@ import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.co
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiques-admin.component';
 import { VehiculesAdminComponent } from './menu/vehicules-admin/All Vehicules/vehicules-admin.component';
+import { ConfirmationCovoiturageComponent } from './modals/confirmation-covoiturage/confirmation-covoiturage.component';
 import { ReservationsCollabModal } from './modals/reservations-collab-modal/reservations-collab.modal';
 import { CreerComponent } from './menu/reservations-collab/creer/creer.component';
 import { CreerVehiculeModalComponent } from './modals/creer-vehicule-modal/creer-vehicule-modal.modal';
 import { DetailsComponent } from './menu/vehicules-admin/details/details.component';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { DetailsComponent } from './menu/vehicules-admin/details/details.compone
     ChauffeursAdminComponent,
     StatistiquesAdminComponent,
     VehiculesAdminComponent,
+    ConfirmationCovoiturageComponent,
     ReservationsCollabModal,
     CreerComponent,
     CreerVehiculeModalComponent,

@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'; 
-import { Covoiturage, listResa1, listResa2 } from '../../mock/mock-reservations'
+import { Covoiturage } from '../../mock/mock-reservations'
 import { AuthService } from 'src/app/auth/auth.service';
 import { ReservationCollabService } from './reservations-collab.service'
 import { ReservationsCollabModal } from '../../modals/reservations-collab-modal/reservations-collab.modal';
@@ -12,9 +12,10 @@ import { ReservationsCollabModal } from '../../modals/reservations-collab-modal/
 })
 export class ReservationsCollabComponent implements OnInit {
 
-  @Input() list: Covoiturage[] = listResa1;
-  @Input() listHist: Covoiturage[] = listResa2;
+  list: Covoiturage[] = [];
+  listHist: Covoiturage[] = [];
   p: number = 1;
+  today = new Date();
 
 
   constructor(private srv: AuthService, private dataSrv: ReservationCollabService, private modalService: NgbModal) { }
@@ -23,6 +24,15 @@ export class ReservationsCollabComponent implements OnInit {
     if (localStorage.getItem('status') != 'Collaborateur') {
       this.srv.secuRoute()
     }
+    this.dataSrv.lister().subscribe((element: Covoiturage[]) => 
+      element.forEach((covoit: Covoiturage) => {
+        if(new Date(covoit.date).getTime()>this.today.getTime()){
+          return this.list.push(covoit)
+        } else {
+          return this.listHist.push(covoit)
+        }
+      })
+    );
   }
 
   afficherDetails(covoit: Covoiturage){
