@@ -36,14 +36,14 @@
         <label>Catégorie:</label>
         <div class="form-group" [ngClass]="{ 'was-validated' : categorie.dirty}">
             <select #categorie="ngModel" [(ngModel)]="newVehicule.categorie" name="categorie" class="form-control" required>
-                <option>Micro-urbaines</option>
+                <option value="MICRO_URBAINES">Micro-urbaines</option>
                 <option value="MINI_CITADINES">Mini-citadines</option>
                 <option value="CITADINES_POLYVALENTES">Citadines polyvalentes</option>
                 <option value="COMPACTES">Compactes</option>
                 <option value="BERLINES_TAILLE_S">Berlines Taille S</option>
                 <option value="BERLINES_TAILLE_M">Berlines Taille M</option>
-                <option value="BERLINES_TAILLES_L">Berlines Taille L</option>
-                <option value="SUV">SUV, Tout-terrains et Pick-up</option>
+                <option value="BERLINES_TAILLE_L">Berlines Taille L</option>
+                <option value="SUV_TOUT_TERRAINS_PICK_UP">SUV, Tout-terrains et Pick-up</option>
             </select>
             <div *ngIf="modele.dirty && modele.invalid"  class="invalid-feedback">
                 La catégorie est obligatoire !
