@@ -15,7 +15,7 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiques-admin.component';
 import { VehiculesAdminComponent } from './menu/vehicules-admin/All Vehicules/vehicules-admin.component';
 import { CreerComponent } from './menu/reservations-collab/creer/creer.component';
-import { DetailsComponent } from './menu/vehicules-admin/details/details.component';
+import { DetailsComponent } from './menu/vehicules-admin/Details/details.component';
 
 
 const routes: Routes =  [
