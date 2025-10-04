@@ -29,7 +29,7 @@ import { ConfirmationCovoiturageComponent } from './modals/confirmation-covoitur
 import { ReservationsCollabModal } from './modals/reservations-collab-modal/reservations-collab.modal';
 import { CreerComponent } from './menu/reservations-collab/creer/creer.component';
 import { CreerVehiculeModalComponent } from './modals/creer-vehicule-modal/creer-vehicule-modal.modal';
-import { DetailsComponent } from './menu/vehicules-admin/details/details.component';
+import { DetailsComponent } from './menu/vehicules-admin/Details/details.component';
 
 
 @NgModule({
