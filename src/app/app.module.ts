@@ -24,10 +24,12 @@ import { PageCollabComponent } from './pages/page-collab/page-collab.component';
 import { PageChauffeurComponent } from './pages/page-chauffeur/page-chauffeur.component';
 import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { StatistiquesAdminComponent } from './menu/statistiques-admin/statistiques-admin.component';
-import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.component';
+import { VehiculesAdminComponent } from './menu/vehicules-admin/All Vehicules/vehicules-admin.component';
 import { ConfirmationCovoiturageComponent } from './modals/confirmation-covoiturage/confirmation-covoiturage.component';
 import { ReservationsCollabModal } from './modals/reservations-collab-modal/reservations-collab.modal';
 import { CreerComponent } from './menu/reservations-collab/creer/creer.component';
+import { CreerVehiculeModalComponent } from './modals/creer-vehicule-modal/creer-vehicule-modal.modal';
+import { DetailsComponent } from './menu/vehicules-admin/Details/details.component';
 
 
 @NgModule({
@@ -50,8 +52,9 @@ import { CreerComponent } from './menu/reservations-collab/creer/creer.component
     VehiculesAdminComponent,
     ConfirmationCovoiturageComponent,
     ReservationsCollabModal,
-    CreerComponent
-
+    CreerComponent,
+    CreerVehiculeModalComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
