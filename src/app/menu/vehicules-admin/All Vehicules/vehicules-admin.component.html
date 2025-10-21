@@ -37,35 +37,19 @@
     <div *ngIf="cate.checked" class="contRech">
         <label for="categ">Catégorie:</label>
         <select #rechCate>
-            <option>Micro-urbaines</option>
+            <option value="MICRO_URBAINES">Micro-urbaines</option>
             <option value="MINI_CITADINES">Mini-citadines</option>
             <option value="CITADINES_POLYVALENTES">Citadines polyvalentes</option>
             <option value="COMPACTES">Compactes</option>
             <option value="BERLINES_TAILLE_S">Berlines Taille S</option>
             <option value="BERLINES_TAILLE_M">Berlines Taille M</option>
-            <option value="BERLINES_TAILLES_L">Berlines Taille L</option>
-            <option value="SUV">SUV, Tout-terrains et Pick-up</option>
+            <option value="BERLINES_TAILLE_L">Berlines Taille L</option>
+            <option value="SUV_TOUT_TERRAINS_PICK_UP">SUV, Tout-terrains et Pick-up</option>
         </select>
         <img class="search" src="assets/img/search.png" alt="Icone de recherche" (click)="findByCate(rechCate.value)">
     </div>
-</div>
-
-<div class="contAllVehicules">
-    <div *ngFor="let v of tabVehicules" class="vehicule">
-        <div class="photoV">
-            <img src="{{v.urlImage}}" alt="Photo du vehicule">
-        </div>
-        <div class="infosV">
-            <div class="imat">
-                <p>{{v.immatriculation}}</p>
-            </div>
-            <div class="marqueModele">
-                <p>{{v.marque}} - {{v.model}}</p>
-            </div>
-            <div class="cat">
-                <p>{{v.categorie}}</p>
-            </div>
-        </div>
+    <div *ngIf="cate.checked || marq.checked || imat.checked">
+        <button class="btn btn-danger mt-2" (click)="noFilter(cate, marq, imat)">Effacer les filtres</button>
     </div>
 </div>
 <div *ngIf="marqueIntrouvable" class="alert alert-warning" role="alert">
@@ -78,6 +62,30 @@
     <p>Aucun véhicule dans cette catégorie..</p>
 </div>
 
+<div class="contAllVehicules">
+    <div #voiture *ngFor="let v of tabVehicules" class="vehicule" (click)="toggle(voiture)">
+        <div class="photoV">
+            <img src="{{v.imageUrl}}"
+                onError="this.onerror=null;this.src='https://www.sciencesetavenir.fr/assets/img/2015/10/12/cover-r4x3w1000-57e174ba44171-terrafugia_6.jpg';"
+                alt="Photo du vehicule">
+        </div>
+        <div class="infosV">
+            <div class="imat">
+                <p>{{v.immatriculation}}</p>
+            </div>
+            <div class="marqueModele">
+                <p>{{v.marque}} - {{v.model}}</p>
+            </div>
+            <div class="cat">
+                <p>{{v.categorie}}</p>
+            </div>
+        </div>
+        <div>
+            <button (click)="goDetails(v.id)" class="btn btn-dark mt-3">Détails</button>
+        </div>
+    </div>
+</div>
+
 <div class="contAjout">
-    <img src="assets/img/ajout.png" alt="Icone d'ajout">
+    <img src="assets/img/ajout.png" alt="Icone d'ajout" (click)="ajouterVehicule()">
 </div>
