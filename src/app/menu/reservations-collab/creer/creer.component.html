@@ -24,20 +24,67 @@
               <input required ngModel name="heureDepart" type="date" class="form-control" id="heureDepart">
           </div>
           </form>
-    </div>
-    <div class="row">
-      <div class="col">
-        Durée du trajet : (??)
-      </div>
-      <div class="col">
-        Distance : (??)
-      </div>
-    </div>
+          <div class="row">
+            <div class="col">
+              Durée du trajet : (??)
+            </div>
+            <div class="col">
+              Distance : (??)
+            </div>
+          </div>
+        </div>
 </div>
 
 <div class="contAll">
     <button type="button" class="btn btn-link" (click)="deroulerSociete()"><h3>Véhicule de société</h3></button>
-    <div *ngIf="societeDeroule">bkfbzjamvbm</div>
+    <div *ngIf="societeDeroule">
+      <div>
+        <h4>Réservations en cours : </h4>
+        <div class="alert alert-warning" *ngIf="list.length===0">Aucune réservation en cours</div>
+        <table class="table" *ngIf="list.length!==0">
+            <thead class="thead-light">
+                <tr>
+                    <th>Départ</th>
+                    <th>Destination</th>
+                    <th>Date/heure</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let covoit of list">
+                    <td>{{covoit.depart | titlecase}}</td>
+                    <td>{{covoit.arrive | titlecase}}</td>
+                    <td>{{covoit.date | date:'dd/MM/yyyy'}} {{covoit.heureDepart}}</td>
+                    <td> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div>
+        <h4>Historique : </h4>
+        <div class="alert alert-warning" *ngIf="listHist.length===0">Aucune réservation n'est dans votre historique</div>
+        <table class="table" *ngIf="listHist.length!==0">
+            <thead  class="thead-light">
+                <tr>
+                    <th>Départ</th>
+                    <th>Destination</th>
+                    <th>Date/heure</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let covoit of listHist | paginate: { itemsPerPage: 5, currentPage: p }" >
+                    <td>{{covoit.depart | titlecase}}</td>
+                    <td>{{covoit.arrive | titlecase}}</td>
+                    <td>{{covoit.date | date:'dd/MM/yyyy'}} {{covoit.heureDepart}}</td>
+                    <td> </td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls  *ngIf="listHist.length!==0" class="d-flex justify-content-end" (pageChange)="p = $event"></pagination-controls>
+    </div>
+    </div>
 </div>
 
 <div class="contAll">

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import { Covoiturage } from 'src/app/mock/mock-reservations';
 import { AdressesService } from 'src/app/services/adresses.service';
+import { ReservationCollabService } from '../reservations-collab.service';
 
 
 @Component({
@@ -13,11 +15,15 @@ export class CreerComponent implements OnInit {
   covoitDeroule = true;
   societeDeroule = false;
   chauffeurDeroule = false;
+  list: Covoiturage[] = [];
+  listHist: Covoiturage[] = [];
+  p: number = 1;
+  today = new Date();
 
   depart: string;
   listAdresse: string[];
 
-  constructor(private adressesSrv: AdressesService) { }
+  constructor(private adressesSrv: AdressesService, private dataSrv: ReservationCollabService) { }
 
   ngOnInit(): void {
   }
@@ -49,5 +55,17 @@ export class CreerComponent implements OnInit {
       this.listAdresse=tableAdresses;
       console.log(this.listAdresse);
     })
+  }
+
+  getTable(){
+    this.dataSrv.lister().subscribe((element: Covoiturage[]) => 
+      element.forEach((covoit: Covoiturage) => {
+        if(new Date(covoit.date).getTime()>this.today.getTime()){
+          return this.list.push(covoit)
+        } else {
+          return this.listHist.push(covoit)
+        }
+      })
+    );
   }
 }
