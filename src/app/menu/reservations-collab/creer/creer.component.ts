@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Covoiturage } from 'src/app/mock/mock-reservations';
 import { AdressesService } from 'src/app/services/adresses.service';
 import { ReservationCollabService } from '../reservations-collab.service';
@@ -21,11 +23,13 @@ export class CreerComponent implements OnInit {
   today = new Date();
 
   depart: string;
+  arrive: string;
   listAdresse: string[];
 
   constructor(private adressesSrv: AdressesService, private dataSrv: ReservationCollabService) { }
 
   ngOnInit(): void {
+    this.adressesSrv.getAdresseSub().subscribe(data => this.listAdresse = data);
   }
 
   deroulerCovoit(){
@@ -46,16 +50,45 @@ export class CreerComponent implements OnInit {
     this.covoitDeroule = false;
   }
 
-  afficherListe(){
-    this.adressesSrv.getAdresseBDD(this.depart).subscribe(data => { 
-      const tableAdresses: string[] =[];
-      data.features.forEach(element => {
-        tableAdresses.push(element.properties.name+", "+element.properties.postcode+" "+element.properties.city);
-      });
-      this.listAdresse=tableAdresses;
-      console.log(this.listAdresse);
-    })
-  }
+  search = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      map(term => {
+        if(term.length < 2 ) {
+           return []; 
+        } else {
+          let tableAdresses = [];
+          this.adressesSrv.getAdresseBDD(this.depart).subscribe(data => { 
+            data.features.forEach(element => {
+              tableAdresses.push(element.properties.name+", "+element.properties.postcode+" "+element.properties.city);
+            });
+          });
+          return tableAdresses;
+        }
+      }
+    ),
+    debounceTime(500));
+
+    search1 = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      map(term => {
+        if(term.length < 2 ) {
+           return []; 
+        } else {
+          let tableAdresses = [];
+          this.adressesSrv.getAdresseBDD(this.arrive).subscribe(data => { 
+            data.features.forEach(element => {
+              tableAdresses.push(element.properties.name+", "+element.properties.postcode+" "+element.properties.city);
+            });
+          });
+          return tableAdresses;
+        }
+      }
+    ),
+    debounceTime(500));
 
   getTable(){
     this.dataSrv.lister().subscribe((element: Covoiturage[]) => 

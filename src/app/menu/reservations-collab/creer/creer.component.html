@@ -12,11 +12,11 @@
             <div class="form-row">
               <div class="form-group col-6">
                 <label for="depart">Adresse de départ :</label>
-                <input type="text" class="form-control"[(ngModel)]="depart" name="depart" (keyup)="afficherListe()">
+                <input name="depart" type="text" class="form-control" [(ngModel)]="depart" [ngbTypeahead]="this.search"/>
               </div>
               <div class="form-group col-6">
-                <label for="destination">Adresse de destination :</label>
-                <input type="tet" class="form-control" id="destination">
+                <label for="arrive">Adresse de destination :</label>
+                <input name="arrive" type="text" class="form-control" [(ngModel)]="arrive" [ngbTypeahead]="this.search1"/>
             </div>
             </div>
             <div class="form-group col-6">
