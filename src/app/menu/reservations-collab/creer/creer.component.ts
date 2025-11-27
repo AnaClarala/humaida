@@ -24,12 +24,13 @@ export class CreerComponent implements OnInit {
 
   depart: string;
   arrive: string;
-  listAdresse: string[];
+  listAdresseDepart: string[];
+  listAdresseArrive: string[];
 
   constructor(private adressesSrv: AdressesService, private dataSrv: ReservationCollabService) { }
 
   ngOnInit(): void {
-    this.adressesSrv.getAdresseSub().subscribe(data => this.listAdresse = data);
+    this.adressesSrv.getAdresseSub().subscribe(data => this.listAdresseDepart = data);
   }
 
   deroulerCovoit(){
@@ -90,6 +91,10 @@ export class CreerComponent implements OnInit {
     ),
     debounceTime(500));
 
+
+    /*
+    * Partie 2 du component
+    */
   getTable(){
     this.dataSrv.lister().subscribe((element: Covoiturage[]) => 
       element.forEach((covoit: Covoiturage) => {
