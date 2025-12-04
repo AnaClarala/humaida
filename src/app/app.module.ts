@@ -28,6 +28,8 @@ import { VehiculesAdminComponent } from './menu/vehicules-admin/vehicules-admin.
 import { ConfirmationCovoiturageComponent } from './modals/confirmation-covoiturage/confirmation-covoiturage.component';
 import { ReservationsCollabModal } from './modals/reservations-collab-modal/reservations-collab.modal';
 import { CreerComponent } from './menu/reservations-collab/creer/creer.component';
+import { ListeAnnoncesCollabComponent } from './menu/annonces-collab/liste-annonces-collab/liste-annonces-collab.component';
+import { DetailsAnnonceComponent } from './modals/details-annonce/details-annonce.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { CreerComponent } from './menu/reservations-collab/creer/creer.component
     VehiculesAdminComponent,
     ConfirmationCovoiturageComponent,
     ReservationsCollabModal,
-    CreerComponent
+    CreerComponent,
+    ListeAnnoncesCollabComponent,
+    DetailsAnnonceComponent
 
   ],
   imports: [

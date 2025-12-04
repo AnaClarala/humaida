@@ -26,4 +26,8 @@ export class ConfirmationCovoiturageComponent implements OnInit {
     this.annonceService.publierAnnonce().subscribe();
   }
 
+  /*resetFormulaire() : void {
+    this.annonceService.resetFormulaire();
+  }*/
+
 }

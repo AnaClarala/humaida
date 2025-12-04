@@ -1,0 +1,50 @@
+<div class="titreSection">
+    <h1>Vos annonces</h1>
+</div>
+<div class="row">
+    <div class="col-3 offset-9">
+        <button class="btn btn-warning" routerLink="creer">Publier une annonce</button>
+    </div>
+</div>
+<div>
+    <h4>Annonces en cours : </h4>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Destination</th>
+                <th>Départ</th>
+                <th>Date/heure</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let annonce of listHist | paginate: { itemsPerPage: 5, currentPage: page }">
+                <td>{{annonce.depart}}</td>
+                <td>{{annonce.arrive}}</td>
+                <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.horaire}}</td>
+                <td><button class="btn btn-light" (click)="afficherDetails(annonce)">Détails</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Historique : </h4>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Destination</th>
+                <th>Départ</th>
+                <th>Date/heure</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let annonce of listHist | paginate: { itemsPerPage: 5, currentPage: page }">
+                <td>{{annonce.depart}}</td>
+                <td>{{annonce.arrive}}</td>
+                <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.horaire}}</td>
+                <td><button class="btn btn-light" (click)="afficherDetails(annonce)">Détails</button></td>
+            </tr>
+        </tbody>
+    </table>
