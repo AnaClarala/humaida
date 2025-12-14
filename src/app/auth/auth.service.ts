@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Collegue} from './auth.domains';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import {environment} from 'src/environments/environment';
 import { of, BehaviorSubject, Observable } from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
 import { Router } from '@angular/router';
