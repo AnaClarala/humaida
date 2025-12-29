@@ -8,7 +8,8 @@
 </div>
 <div>
     <h4>Annonces en cours : </h4>
-    <table class="table">
+    <div class="alert alert-warning" *ngIf="list.length===0">Aucune réservation en cours</div>
+    <table class="table" *ngIf="list.length!==0">
         <thead class="thead-light">
             <tr>
                 <th>Destination</th>
@@ -18,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let annonce of listHist | paginate: { itemsPerPage: 5, currentPage: page }">
+            <tr *ngFor="let annonce of list | paginate: { itemsPerPage: 5, currentPage: page }">
                 <td>{{annonce.depart}}</td>
                 <td>{{annonce.arrive}}</td>
                 <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.horaire}}</td>
@@ -30,7 +31,8 @@
 
 <div>
     <h4>Historique : </h4>
-    <table class="table">
+    <div class="alert alert-warning" *ngIf="listHist.length===0">Aucune réservation n'est dans votre historique</div>
+    <table class="table" *ngIf="listHist.length!==0">
         <thead class="thead-light">
             <tr>
                 <th>Destination</th>
@@ -48,3 +50,5 @@
             </tr>
         </tbody>
     </table>
+    <pagination-controls  *ngIf="listHist.length!==0" class="d-flex justify-content-end" (pageChange)="page = $event"></pagination-controls>
+</div>
