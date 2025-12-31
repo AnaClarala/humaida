@@ -8,7 +8,7 @@
 </div>
 <div>
     <h4>Annonces en cours : </h4>
-    <div class="alert alert-warning" *ngIf="list.length===0">Aucune réservation en cours</div>
+    <div class="alert alert-warning" *ngIf="list.length===0">Aucune annonce en cours</div>
     <table class="table" *ngIf="list.length!==0">
         <thead class="thead-light">
             <tr>
@@ -22,7 +22,7 @@
             <tr *ngFor="let annonce of list | paginate: { itemsPerPage: 5, currentPage: page }">
                 <td>{{annonce.depart}}</td>
                 <td>{{annonce.arrive}}</td>
-                <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.horaire}}</td>
+                <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.heureDepart}}</td>
                 <td><button class="btn btn-light" (click)="afficherDetails(annonce)">Détails</button></td>
             </tr>
         </tbody>
@@ -31,7 +31,7 @@
 
 <div>
     <h4>Historique : </h4>
-    <div class="alert alert-warning" *ngIf="listHist.length===0">Aucune réservation n'est dans votre historique</div>
+    <div class="alert alert-warning" *ngIf="listHist.length===0">Aucune annonce n'est dans votre historique</div>
     <table class="table" *ngIf="listHist.length!==0">
         <thead class="thead-light">
             <tr>
@@ -45,7 +45,7 @@
             <tr *ngFor="let annonce of listHist | paginate: { itemsPerPage: 5, currentPage: page }">
                 <td>{{annonce.depart}}</td>
                 <td>{{annonce.arrive}}</td>
-                <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.horaire}}</td>
+                <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.heureDepart}}</td>
                 <td><button class="btn btn-light" (click)="afficherDetails(annonce)">Détails</button></td>
             </tr>
         </tbody>
