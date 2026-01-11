@@ -27,7 +27,6 @@ export class ListeAnnoncesCollabComponent implements OnInit {
     }
     this.dataSrv.lister().subscribe((element: Annonce[]) =>
       element.forEach((annonce: Annonce) => {
-        console.log(annonce);
         if (new Date(annonce.date).getTime() > this.today.getTime()) {
           this.list.push(annonce)
         } else {
