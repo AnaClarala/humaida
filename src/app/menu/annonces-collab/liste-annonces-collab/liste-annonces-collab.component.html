@@ -6,6 +6,7 @@
         <button class="btn btn-warning" routerLink="creer">Publier une annonce</button>
     </div>
 </div>
+<div class="alert alert-success mt-4" *ngIf = "parametre==='ok'"> Votre publication a bien été ajoutée !</div>
 <div>
     <h4>Annonces en cours : </h4>
     <div class="alert alert-warning" *ngIf="list.length===0">Aucune annonce en cours</div>

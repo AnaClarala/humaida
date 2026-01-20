@@ -26,6 +26,7 @@ const routes: Routes =  [
   { path: 'collaborateur/reservations', component: ReservationsCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur/reservations/creer', component: CreerComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur/annonces', component: ListeAnnoncesCollabComponent, canActivate: [StatutConnecteService]},
+  { path: 'collaborateur/annonces?publication=ok', component: ListeAnnoncesCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur/annonces/creer', component: AnnoncesCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur/statistiques', component: StatistiquesCollabComponent, canActivate: [StatutConnecteService]},
   { path: 'collaborateur', component: PageCollabComponent, canActivate: [StatutConnecteService]},

@@ -39,12 +39,6 @@
                         Le modèle du véhicule est obligatoire.
                     </p>
                 </div>
-                <!--
-                <div class="form-group">
-                    <input required [(ngModel)]=covoiturageFormulaire.imageUrl name="imageUrl" type="text"
-                        class="form-control" placeholder="URL de l'image du véhicule">
-                </div>
-                -->
                 <div class="form-group" [ngClass]="{'was-validated' : place.dirty}">
                     <input #place="ngModel" required [(ngModel)]=covoiturageFormulaire.place name="place" type="number"
                         min="1" max="20" class="form-control" placeholder="Nombre de places disponibles *">

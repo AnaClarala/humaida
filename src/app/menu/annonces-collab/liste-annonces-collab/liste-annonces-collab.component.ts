@@ -5,6 +5,7 @@ import { ListeAnnoncesCollabService } from '../liste-annonces-collab/liste-annon
 import { Annonce } from '../annonces.domains';
 import { DetailsAnnonceComponent } from 'src/app/modals/details-annonce/details-annonce.component';
 import { element } from 'protractor';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-liste-annonces-collab',
@@ -16,9 +17,11 @@ export class ListeAnnoncesCollabComponent implements OnInit {
   @Input() list: Annonce[] = [];
   @Input() listHist: Annonce[] = [];
   page: number = 1;
-  today = new Date()
+  today = new Date();
+  parametre : string;
 
-  constructor(private srv: AuthService, private dataSrv: ListeAnnoncesCollabService, private modalService: NgbModal) {
+  constructor(private srv: AuthService, private dataSrv: ListeAnnoncesCollabService, private modalService: NgbModal, private route: ActivatedRoute) {
+    
   }
 
   ngOnInit(): void {
@@ -33,6 +36,7 @@ export class ListeAnnoncesCollabComponent implements OnInit {
           this.listHist.push(annonce)
         }
       }));
+      this.parametre = this.route.snapshot.queryParamMap.get("publication")
   }
 
 
