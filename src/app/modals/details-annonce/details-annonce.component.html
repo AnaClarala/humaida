@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h4 class="modal-title">Détails de l'annonce :</h4>
+    <img class="btnClose" (click)="activeModal.dismiss('Cross click')" src="../../../assets/img/close.png"
+        alt="Icone de fermeture">
+</div>
+<div class="modal-body">
+    <p>Départ : {{annonce.depart}}</p>
+    <p>Destination : {{annonce.arrive}}</p>
+    <p>Marque du véhicule : {{annonce.marqueVoiture}}</p>
+    <p>Modèle du véhicule : {{annonce.modeleVoiture}}</p>
+    <p>Nombre de places disponibles : {{annonce.place}}</p>
+    <p>Date : {{annonce.date | date:'dd/MM/yyyy'}}</p>
+    <p>Horaire : {{annonce.heureDepart}}</p>
+  </div>

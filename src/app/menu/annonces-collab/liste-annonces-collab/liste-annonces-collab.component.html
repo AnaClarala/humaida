@@ -1,0 +1,55 @@
+<div class="titreSection">
+    <h1>Vos annonces</h1>
+</div>
+<div class="row">
+    <div class="col-3 offset-9">
+        <button class="btn btn-warning" routerLink="creer">Publier une annonce</button>
+    </div>
+</div>
+<div class="alert alert-success mt-4" *ngIf = "parametre==='ok'"> Votre publication a bien été ajoutée !</div>
+<div>
+    <h4>Annonces en cours : </h4>
+    <div class="alert alert-warning" *ngIf="list.length===0">Aucune annonce en cours</div>
+    <table class="table" *ngIf="list.length!==0">
+        <thead class="thead-light">
+            <tr>
+                <th>Destination</th>
+                <th>Départ</th>
+                <th>Date/heure</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let annonce of list | paginate: { itemsPerPage: 5, currentPage: page }">
+                <td>{{annonce.depart}}</td>
+                <td>{{annonce.arrive}}</td>
+                <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.heureDepart}}</td>
+                <td><button class="btn btn-light" (click)="afficherDetails(annonce)">Détails</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Historique : </h4>
+    <div class="alert alert-warning" *ngIf="listHist.length===0">Aucune annonce n'est dans votre historique</div>
+    <table class="table" *ngIf="listHist.length!==0">
+        <thead class="thead-light">
+            <tr>
+                <th>Destination</th>
+                <th>Départ</th>
+                <th>Date/heure</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let annonce of listHist | paginate: { itemsPerPage: 5, currentPage: page }">
+                <td>{{annonce.depart}}</td>
+                <td>{{annonce.arrive}}</td>
+                <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.heureDepart}}</td>
+                <td><button class="btn btn-light" (click)="afficherDetails(annonce)">Détails</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls  *ngIf="listHist.length!==0" class="d-flex justify-content-end" (pageChange)="page = $event"></pagination-controls>
+</div>
