@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="form-group col-4" [ngClass]="{'was-validated' : date.dirty}">
                         <input #date="ngModel" required [(ngModel)]=covoiturageFormulaire.date name="date" type="date"
-                            class="form-control">
+                            class="form-control" [min]="this.todayString">
                         <p *ngIf="place.dirty && place.invalid" class="invalid-feedback">
                             La date de départ est obligatoire.
                         </p>

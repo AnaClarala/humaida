@@ -5,6 +5,7 @@ import { AnnoncesCollabService } from './annonces-collab.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationCovoiturageComponent } from 'src/app/modals/confirmation-covoiturage/confirmation-covoiturage.component';
 import { Time } from '@angular/common';
+import { moveMessagePortToContext } from 'worker_threads';
 
 
 export interface CovoiturageFormulaire {
@@ -28,6 +29,7 @@ export class AnnoncesCollabComponent implements OnInit {
 
   heures: number[];
   minutes: number[];
+  todayString = new Date().toISOString().substring(0,10);
   covoiturageFormulaire: CovoiturageFormulaire = {};
 
   constructor(private srv: AuthService, private annonceCollabSrv: AnnoncesCollabService, private modalService: NgbModal) { }
