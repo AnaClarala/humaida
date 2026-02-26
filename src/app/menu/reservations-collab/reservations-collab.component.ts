@@ -10,6 +10,7 @@ import { ReservationsCollabModal } from '../../modals/reservations-collab-modal/
   templateUrl: './reservations-collab.component.html',
   styleUrls: ['./reservations-collab.component.scss']
 })
+
 export class ReservationsCollabComponent implements OnInit {
 
   list: Covoiturage[] = [];

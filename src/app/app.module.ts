@@ -28,6 +28,8 @@ import { VehiculesAdminComponent } from './menu/vehicules-admin/All Vehicules/ve
 import { ConfirmationCovoiturageComponent } from './modals/confirmation-covoiturage/confirmation-covoiturage.component';
 import { ReservationsCollabModal } from './modals/reservations-collab-modal/reservations-collab.modal';
 import { CreerComponent } from './menu/reservations-collab/creer/creer.component';
+import { ListeAnnoncesCollabComponent } from './menu/annonces-collab/liste-annonces-collab/liste-annonces-collab.component';
+import { DetailsAnnonceComponent } from './modals/details-annonce/details-annonce.component';
 import { CreerVehiculeModalComponent } from './modals/creer-vehicule-modal/creer-vehicule-modal.modal';
 import { DetailsComponent } from './menu/vehicules-admin/Details/details.component';
 
@@ -53,6 +55,8 @@ import { DetailsComponent } from './menu/vehicules-admin/Details/details.compone
     ConfirmationCovoiturageComponent,
     ReservationsCollabModal,
     CreerComponent,
+    ListeAnnoncesCollabComponent,
+    DetailsAnnonceComponent,
     CreerVehiculeModalComponent,
     DetailsComponent,
   ],
