@@ -29,16 +29,19 @@ export interface DeplacementPro {
     private subCovoiturageSelectionne = new Subject<Covoiturage>();
     me: number;
 
-
     constructor(private http: HttpClient, private authSrv: AuthService) { }
 
     recupererCovoiturageCourant(): Covoiturage{
         return this.covoiturageCourant;
     }
 
-    lister(): Observable<Covoiturage[]> {
+    listerResaCovoit(): Observable<Covoiturage[]> {
       this.authSrv.collegueConnecteObs.subscribe(col => this.me = col.id);
       return this.http.get<Covoiturage[]>(`${environment.baseUrl}covoiturage/reservation?id=${this.me}`);
+    }
+
+    listerCovoitFuturs(depart:string, arrive: string, date: string): Observable<Covoiturage[]> {
+      return this.http.get<Covoiturage[]>(`${environment.baseUrl}covoiturage?depart=${depart}&arrive=${arrive}&date=${date}`);
     }
 
     listerResaVehicule(): Observable<DeplacementPro[]> {

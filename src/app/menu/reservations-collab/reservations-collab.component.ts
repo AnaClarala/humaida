@@ -25,7 +25,7 @@ export class ReservationsCollabComponent implements OnInit {
     if (localStorage.getItem('status') != 'Collaborateur') {
       this.srv.secuRoute()
     }
-    this.dataSrv.lister().subscribe((element: Covoiturage[]) => 
+    this.dataSrv.listerResaCovoit().subscribe((element: Covoiturage[]) => 
       element.forEach((covoit: Covoiturage) => {
         if(new Date(covoit.date).getTime()>this.today.getTime()){
           return this.list.push(covoit)

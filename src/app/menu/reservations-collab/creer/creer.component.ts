@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { Collegue } from 'src/app/auth/auth.domains';
 import { Covoiturage } from 'src/app/mock/mock-reservations';
 import { AdressesService } from 'src/app/services/adresses.service';
 import { ReservationCollabService } from '../reservations-collab.service';
@@ -21,9 +22,11 @@ export class CreerComponent implements OnInit {
   listHist: Covoiturage[] = [];
   p: number = 1;
   today = new Date();
+  listCovoitAReserver: Covoiturage[] = [];
 
   depart: string;
   arrive: string;
+  dateDepart: string;
   listAdresseDepart: string[];
   listAdresseArrive: string[];
 
@@ -90,13 +93,16 @@ export class CreerComponent implements OnInit {
       }
     ),
     debounceTime(500));
-
+    
+    listerCovoitFuturs(depart: string, arrive: string, date: string){
+      return this.dataSrv.listerCovoitFuturs(depart, arrive, date).subscribe(covoit => this.listCovoitAReserver = covoit)
+    }
 
     /*
     * Partie 2 du component
     */
   getTable(){
-    this.dataSrv.lister().subscribe((element: Covoiturage[]) => 
+    this.dataSrv.listerResaCovoit().subscribe((element: Covoiturage[]) => 
       element.forEach((covoit: Covoiturage) => {
         if(new Date(covoit.date).getTime()>this.today.getTime()){
           return this.list.push(covoit)
