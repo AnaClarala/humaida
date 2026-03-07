@@ -5,8 +5,8 @@
 </div>
 
 
-<div class="contAll">
-    <button type="button" class="btn btn-link" (click)="deroulerCovoit()"><h3>Covoiturage</h3></button>
+<div class="contAll deroule" (click)="deroulerCovoit()">
+    <h3>Covoiturage</h3>
     <div *ngIf="covoitDeroule">
         <form  #etatForm="ngForm">
             <div class="form-row">
@@ -61,8 +61,8 @@
         </div>
 </div>
 
-<div class="contAll">
-    <button type="button" class="btn btn-link" (click)="deroulerSociete()"><h3>Véhicule de société</h3></button>
+<div class="contAll deroule" (click)="deroulerSociete()">
+    <h3>Véhicule de société</h3>
     <div *ngIf="societeDeroule">
       <div>
         <h4>Réservations en cours : </h4>
@@ -113,7 +113,7 @@
     </div>
 </div>
 
-<div class="contAll">
-    <button type="button" class="btn btn-link" (click)="deroulerChauffeur()"><h3>Véhicule avec chauffeur privé</h3></button>
+<div class="contAll deroule" (click)="deroulerChauffeur()">
+    <h3>Véhicule avec chauffeur privé</h3>
     <div *ngIf="chauffeurDeroule">bkfbzjamvbm</div>
 </div>
