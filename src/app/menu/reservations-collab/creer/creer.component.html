@@ -1,40 +1,45 @@
-<a routerLink="../"><<< Retour à la liste</a>
+<a routerLink="../">
+  <<< Retour à la liste</a>
 
-<div class="titreSection">
-    <h1>Réserver un véhicule</h1>
-</div>
+    <div class="titreSection">
+      <h1>Réserver un véhicule</h1>
+    </div>
 
 
-<div class="contAll deroule" (click)="deroulerCovoit()">
-    <h3>Covoiturage</h3>
-    <div *ngIf="covoitDeroule">
-        <form  #etatForm="ngForm">
-            <div class="form-row">
-              <div class="form-group col-6">
-                <label for="depart">Adresse de départ :*</label>
-                <input name="depart" type="text" class="form-control" [(ngModel)]="depart" [ngbTypeahead]="this.search" required/>
-              </div>
-              <div class="form-group col-6">
-                <label for="arrive">Adresse de destination :*</label>
-                <input name="arrive" type="text" class="form-control" [(ngModel)]="arrive" [ngbTypeahead]="this.search1" required/>
+    <div class="contAll deroule" (click)="deroulerCovoit()">
+      <h3>Covoiturage</h3>
+      <div *ngIf="covoitDeroule">
+        <form #etatForm="ngForm">
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="depart">Adresse de départ :*</label>
+              <input name="depart" type="text" class="form-control" [(ngModel)]="depart" [ngbTypeahead]="this.search"
+                required />
             </div>
+            <div class="form-group col-6">
+              <label for="arrive">Adresse de destination :*</label>
+              <input name="arrive" type="text" class="form-control" [(ngModel)]="arrive" [ngbTypeahead]="this.search1"
+                required />
             </div>
             <div class="form-group col-6">
               <label for="dateDepart">Date de départ :*</label>
-              <input [(ngModel)]="dateDepart" name="dateDepart" type="date" class="form-control" id="dateDepart" required>
-          </div>
-          </form>
-          <div class="row">
-            <div class="col">
-              Durée du trajet : (??)
-            </div>
-            <div class="col">
-              Distance : (??)
+              <input [(ngModel)]="dateDepart" name="dateDepart" type="date" class="form-control" id="dateDepart"
+                required>
             </div>
           </div>
-          <button type="button" class="btn" (click)="listerCovoitFuturs(depart, arrive, dateDepart)">Chercher</button>
-          <div class="alert alert-warning" *ngIf="listCovoitAReserver.length===0">Aucun covoiturage ne correspond à vos critères</div>
-          <table class="table" *ngIf="listCovoitAReserver.length!==0">
+        </form>
+        <div class="row">
+          <div class="col">
+            Durée du trajet : (??)
+          </div>
+          <div class="col">
+            Distance : (??)
+          </div>
+        </div>
+        <button type="button" class="btn" (click)="listerCovoitFuturs(depart, arrive, dateDepart)">Chercher</button>
+        <div class="alert alert-warning" *ngIf="listCovoitAReserver.length===0">Aucun covoiturage ne correspond à vos
+          critères</div>
+        <table class="table" *ngIf="listCovoitAReserver.length!==0">
           <thead class="thead-light">
             <tr>
               <th>Date/heure</th>
@@ -58,62 +63,64 @@
             </tr>
           </tbody>
         </table>
-        </div>
-</div>
+      </div>
+    </div>
 
-<div class="contAll deroule" (click)="deroulerSociete()">
-    <h3>Véhicule de société</h3>
-    <div *ngIf="societeDeroule">
-      <div>
-        <h4>Réservations en cours : </h4>
-        <div class="alert alert-warning" *ngIf="list.length===0">Aucune réservation en cours</div>
-        <table class="table" *ngIf="list.length!==0">
+    <div class="contAll deroule" (click)="deroulerSociete()">
+      <h3>Véhicule de société</h3>
+      <div *ngIf="societeDeroule">
+        <div>
+          <h4>Réservations en cours : </h4>
+          <div class="alert alert-warning" *ngIf="list.length===0">Aucune réservation en cours</div>
+          <table class="table" *ngIf="list.length!==0">
             <thead class="thead-light">
-                <tr>
-                    <th>Départ</th>
-                    <th>Destination</th>
-                    <th>Date/heure</th>
-                    <th> </th>
-                </tr>
+              <tr>
+                <th>Départ</th>
+                <th>Destination</th>
+                <th>Date/heure</th>
+                <th> </th>
+              </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let covoit of list">
-                    <td>{{covoit.depart | titlecase}}</td>
-                    <td>{{covoit.arrive | titlecase}}</td>
-                    <td>{{covoit.date | date:'dd/MM/yyyy'}} {{covoit.heureDepart}}</td>
-                    <td> </td>
-                </tr>
+              <tr *ngFor="let covoit of list">
+                <td>{{covoit.depart | titlecase}}</td>
+                <td>{{covoit.arrive | titlecase}}</td>
+                <td>{{covoit.date | date:'dd/MM/yyyy'}} {{covoit.heureDepart}}</td>
+                <td> </td>
+              </tr>
             </tbody>
-        </table>
-    </div>
-    
-    <div>
-        <h4>Historique : </h4>
-        <div class="alert alert-warning" *ngIf="listHist.length===0">Aucune réservation n'est dans votre historique</div>
-        <table class="table" *ngIf="listHist.length!==0">
-            <thead  class="thead-light">
-                <tr>
-                    <th>Départ</th>
-                    <th>Destination</th>
-                    <th>Date/heure</th>
-                    <th> </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let covoit of listHist | paginate: { itemsPerPage: 5, currentPage: p }" >
-                    <td>{{covoit.depart | titlecase}}</td>
-                    <td>{{covoit.arrive | titlecase}}</td>
-                    <td>{{covoit.date | date:'dd/MM/yyyy'}} {{covoit.heureDepart}}</td>
-                    <td> </td>
-                </tr>
-            </tbody>
-        </table>
-        <pagination-controls  *ngIf="listHist.length!==0" class="d-flex justify-content-end" (pageChange)="p = $event"></pagination-controls>
-    </div>
-    </div>
-</div>
+          </table>
+        </div>
 
-<div class="contAll deroule" (click)="deroulerChauffeur()">
-    <h3>Véhicule avec chauffeur privé</h3>
-    <div *ngIf="chauffeurDeroule">bkfbzjamvbm</div>
-</div>
+        <div>
+          <h4>Historique : </h4>
+          <div class="alert alert-warning" *ngIf="listHist.length===0">Aucune réservation n'est dans votre historique
+          </div>
+          <table class="table" *ngIf="listHist.length!==0">
+            <thead class="thead-light">
+              <tr>
+                <th>Départ</th>
+                <th>Destination</th>
+                <th>Date/heure</th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let covoit of listHist | paginate: { itemsPerPage: 5, currentPage: p }">
+                <td>{{covoit.depart | titlecase}}</td>
+                <td>{{covoit.arrive | titlecase}}</td>
+                <td>{{covoit.date | date:'dd/MM/yyyy'}} {{covoit.heureDepart}}</td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls *ngIf="listHist.length!==0" class="d-flex justify-content-end" (pageChange)="p = $event">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+
+    <div class="contAll deroule" (click)="deroulerChauffeur()">
+      <h3>Véhicule avec chauffeur privé</h3>
+      <div *ngIf="chauffeurDeroule">bkfbzjamvbm</div>
+    </div>
