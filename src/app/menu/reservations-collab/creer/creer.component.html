@@ -26,6 +26,7 @@
               <input [(ngModel)]="dateDepart" name="dateDepart" type="date" class="form-control" id="dateDepart"
                 required>
             </div>
+            <button type="button" class="btn" (click)="listerCovoitFuturs(depart, arrive, dateDepart)">Chercher</button>
           </div>
         </form>
         <div class="row">
@@ -36,7 +37,6 @@
             Distance : (??)
           </div>
         </div>
-        <button type="button" class="btn" (click)="listerCovoitFuturs(depart, arrive, dateDepart)">Chercher</button>
         <div class="alert alert-warning" *ngIf="listCovoitAReserver.length===0">Aucun covoiturage ne correspond à vos
           critères</div>
         <table class="table" *ngIf="listCovoitAReserver.length!==0">
