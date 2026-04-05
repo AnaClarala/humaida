@@ -1,0 +1,98 @@
+<!-- Footer -->
+<footer class="page-footer font-small pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+  
+      <!-- Grid row -->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+  
+          <!-- Content -->
+          <h5 class="text-uppercase">Merci !</h5>
+          <p>L'équipe de Collabauto vous remercie du fond du coeur pour votre visite. Love</p>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+  
+          <!-- Links -->
+          <h5 class="text-uppercase">L'équipe</h5>
+  
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Sylvain</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Mathilde</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Nathan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Jeremy</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+  
+          <!-- Links -->
+          <h5 class="text-uppercase">Accès rapide</h5>
+  
+          <ul class="navbar-nav mr-auto">
+            <!--Menu collaborateur-->
+            <li *ngIf="storage.getItem('status')==='Collaborateur'" class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="collaborateur/reservations">Réservations</a>
+            </li>
+            <li *ngIf="storage.getItem('status')==='Collaborateur'" class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="collaborateur/annonces">Annonces</a>
+            </li>
+            <li *ngIf="storage.getItem('status')==='Collaborateur'" class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="collaborateur/statistiques">Statistiques</a>
+            </li>
+            <!--Menu chauffeur-->
+            <li *ngIf="storage.getItem('status')==='Chauffeur'" class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="chauffeur/planning">Planning</a>
+            </li>
+            <li *ngIf="storage.getItem('status')==='Chauffeur'" class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="chauffeur/occupation">Occupation</a>
+            </li>
+            <!--Menu administrateur-->
+            <li *ngIf="storage.getItem('status')==='Administrateur'" class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="administrateur/chauffeurs">Chauffeurs</a>
+            </li>
+            <li *ngIf="storage.getItem('status')==='Administrateur'" class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="administrateur/vehicules">Véhicules</a>
+            </li>
+            <li *ngIf="storage.getItem('status')==='Administrateur'" class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="administrateur/statistiques">Statistiques</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+        © 2020 Copyright: Collabauto
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->

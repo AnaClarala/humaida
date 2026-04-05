@@ -30,6 +30,7 @@ import { ReservationsCollabModal } from './modals/reservations-collab-modal/rese
 import { CreerComponent } from './menu/reservations-collab/creer/creer.component';
 import { CreerVehiculeModalComponent } from './modals/creer-vehicule-modal/creer-vehicule-modal.modal';
 import { DetailsComponent } from './menu/vehicules-admin/Details/details.component';
+import { FooterComponent } from './footer/footer/footer.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { DetailsComponent } from './menu/vehicules-admin/Details/details.compone
     CreerComponent,
     CreerVehiculeModalComponent,
     DetailsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

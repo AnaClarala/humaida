@@ -1,1 +1,80 @@
-<p>details works!</p>
+<div class="chemin">
+    <p class="voit" (click)="retourAllVoitures()">Véhicules</p>
+    <p>></p>
+    <p class="immat">{{vehiculeCourant.immatriculation}}</p>
+</div>
+
+<div class="titreSection">
+    <h1>Détails</h1>
+</div>
+
+<div class="contImgInfos">
+    <div class="contImg">
+        <img src="{{vehiculeCourant.imageUrl}}" alt="Image du vehicule">
+    </div>
+    <div class="infos">
+        <p><b>Marque :</b> {{vehiculeCourant.marque}}</p>
+        <p><b>Modèle :</b> {{vehiculeCourant.model}}</p>
+        <p><b>Catégorie :</b> {{vehiculeCourant.categorie}}</p>
+        <p><b>Statut :</b> {{vehiculeCourant.status}}</p>
+    </div>
+    <div class="contStatus">
+        <p><b>Changer de statut :</b></p>
+        <div *ngFor="let statu of enumStatus">
+            <button *ngIf="statu != vehiculeCourant.status" (click)="switchStatus(statu)" [ngClass]="{ 'btn-danger' : statu==='HORS_SERVICE', 'btn-warning' : statu==='EN_REPARATION', 'btn-success' : statu==='EN_SERVICE'} " class="btn">{{statu}}</button>
+        </div>
+    </div>
+</div>
+
+<div class="separator"></div>
+
+<h3>Prochaines réservations</h3>
+
+<div *ngIf="reservationFutur.length > 0" class="contReservation">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date / Heure début</th>
+                <th scope="col">Date / Heure fin</th>
+                <th scope="col">Responsable</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let resa of reservationFutur">
+                <td>{{resa.dateEmprun | date:"dd/MM/yyyy"}} à {{resa.heureEmprun}}</td>
+                <td>{{resa.dateRestitution | date:"dd/MM/yyyy"}} à {{resa.heureRestitution}}</td>
+                <td>{{resa.reserverPar.prenom}} {{resa.reserverPar.nom}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="reservationFutur.length < 1" class="alert alert-warning">
+    Aucune réservation
+</div>
+
+<div class="separator"></div>
+
+<h3>Historique des réservations</h3>
+
+<div *ngIf="reservationPasse.length > 0" class="contReservation">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date / Heure début</th>
+                <th scope="col">Date / Heure fin</th>
+                <th scope="col">Responsable</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let resa of reservationPasse">
+                <td>{{resa.dateEmprun | date:"dd/MM/yyyy"}} à {{resa.heureEmprun}}</td>
+                <td>{{resa.dateRestitution | date:"dd/MM/yyyy"}} à {{resa.heureRestitution}}</td>
+                <td>{{resa.reserverPar.prenom}} {{resa.reserverPar.nom}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="reservationPasse.length < 1" class="alert alert-warning">
+    Aucune réservation
+</div>
