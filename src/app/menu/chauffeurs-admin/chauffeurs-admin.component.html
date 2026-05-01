@@ -1,1 +1,47 @@
-<p>chauffeurs-admin works!</p>
+<div class="titreSection">
+    <h1>Chauffeurs</h1>
+</div>
+
+<div class="contFiltre">
+    <h2>Filtrer:</h2>
+    <div class="form-check form-check-inline">
+        <input #idChauffeur class="form-check-input" type="radio" (click)="idChauffeur.checked" name="inlineRadioOptions"
+            id="inlineRadio1">
+        <label class="form-check-label" for="inlineRadio1">
+            Id
+        </label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input #nom class="form-check-input" type="radio" (click)="nom.checked" name="inlineRadioOptions"
+            id="inlineRadio2">
+        <label class="form-check-label" for="inlineRadio2">
+            Nom
+        </label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input #prenom class="form-check-input" type="radio" (click)="prenom.checked" name="inlineRadioOptions"
+            id="inlineRadio3">
+        <label class="form-check-label" for="inlineRadio3">
+            Prénom
+        </label>
+    </div>
+    <div *ngIf="idChauffeur.checked" class="contRech">
+        <label for="idCha">Id:</label>
+        <input #rechId name="idCha" class="inputRech" type="text" placeholder="ex : 1">
+        <img class="search" src="assets/img/search.png" alt="Icone de recherche">
+    </div>
+    <div *ngIf="nom.checked" class="contRech">
+        <label for="nomCha">Nom:</label>
+        <input #rechNom name="nomCha" class="inputRech" type="text" placeholder="ex: Zouzou">
+        <img class="search" src="assets/img/search.png" alt="Icone de recherche">
+    </div>
+    <div *ngIf="prenom.checked" class="contRech">
+        <label for="prenomCha">Prénom:</label>
+        <input #rechPrenom name="prenomCha" class="inputRech" type="text" placeholder="ex: Mouloud">
+        <img class="search" src="assets/img/search.png" alt="Icone de recherche">
+    </div>
+
+    <div *ngIf="idChauffeur.checked || nom.checked || prenom.checked">
+        <button class="btn btn-danger mt-2">Effacer les filtres</button>
+    </div>
+</div>

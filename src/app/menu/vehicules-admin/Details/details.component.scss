@@ -1,0 +1,89 @@
+p {
+    margin: 0;
+}
+
+@font-face {
+    font-family: Pacifico;
+    src: url('/assets/fonts/Pacifico-Regular.ttf') format("opentype");
+  }
+
+.titreSection, h3 {
+    font-family: 'Pacifico';
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.chemin {
+    display: flex;
+    margin-top: 15px;
+}
+
+.chemin p{
+    margin-right: 15px;
+}
+
+.voit {
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.2s;
+}
+
+.voit:hover {
+    box-shadow: 0px 2px 0px 0px #ffaa20;
+}
+
+.immat {
+    color: #ffaa20;
+}
+
+.contImgInfos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 65px;
+}
+
+.infos {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    letter-spacing: 3px;
+}
+
+b {
+    font-size: 20px;
+}
+
+.contImg img {
+    width: 500px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0px 0px 0px 5px rgba(0,0,0,0.75);
+}
+
+.separator {
+    border-top: 4px solid  rgba(0,0,0,0.1);
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+.contReservation {
+      margin-top: 50px;
+  }
+
+.contStatus {
+    margin-top: 30px;
+    text-align: center;
+
+    .btn {
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+.alert {
+    margin-top: 30px;
+}
