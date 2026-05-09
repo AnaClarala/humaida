@@ -26,7 +26,7 @@
               <input [(ngModel)]="dateDepart" name="dateDepart" type="date" class="form-control" id="dateDepart"
                 required>
             </div>
-            <button type="button" class="btn" (click)="listerCovoitFuturs(depart, arrive, dateDepart)">Chercher</button>
+            <button type="button" class="btn btn-link col-2 offset-2" (click)="listerCovoitFuturs(depart, arrive, dateDepart)">Chercher</button>
           </div>
         </form>
         <div class="row">
@@ -37,6 +37,7 @@
             Distance : (??)
           </div>
         </div>
+        <br>
         <div class="alert alert-warning" *ngIf="listCovoitAReserver.length===0">Aucun covoiturage ne correspond à vos
           critères</div>
         <table class="table" *ngIf="listCovoitAReserver.length!==0">
@@ -58,8 +59,10 @@
               <td>{{covoit.arrive | titlecase}}</td>
               <td>{{covoit.marqueVoiture | titlecase}} {{covoit.modeleVoiture | titlecase}}</td>
               <td>{{covoit.collegue.nom | titlecase}} {{covoit.collegue.prenom | titlecase}}</td>
-              <td>{{covoit.place}}</td>
-              <td><button type="button" class="btn">Reserver</button></td>
+              <td>{{this.getNbPlacesRestantes(covoit)}}</td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm" *ngIf="this.getNbPlacesRestantes(covoit)!==0" (click)="confirmerResa(covoit)">Reserver</button>
+                <button type="button" class="btn btn-warning btn-sm" *ngIf="this.getNbPlacesRestantes(covoit)===0" disabled>Reserver</button></td>
             </tr>
           </tbody>
         </table>

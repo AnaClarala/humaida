@@ -1,0 +1,33 @@
+.btnClose {
+    transition: 0.3s;
+    filter: contrast(0.2);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+ }
+ 
+ .btnClose:hover {
+     filter: contrast(1);
+ }
+ 
+ .modal-body {
+     display: flex;
+     justify-content: space-around;
+     padding-top: 50px;
+     padding-bottom: 50px;
+ }
+ 
+ .btn {
+     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5) !important;
+     padding: 15px 10px;
+     transition: 0.2s;
+     letter-spacing: 2px;
+ }
+ 
+ .btn:focus {
+     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+ }
+ 
+ .btn:hover{
+     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5) !important;
+ }
