@@ -49,4 +49,11 @@ export interface DeplacementPro {
       return this.http.get<DeplacementPro[]>(`${environment.baseUrl}deplacement-pro/deplacement?id=${this.me}`);
     }
 
+    reserverCovoiturage(): Observable<Covoiturage> {
+      this.authSrv.collegueConnecteObs.subscribe(col => this.me = col.id);
+      const idCovoit = this.covoiturageCourant.id;
+      console.log('id covoit ' + idCovoit + ' id personne ' + this.me);
+      return this.http.put<Covoiturage>(`${environment.baseUrl}covoiturage/reservation?idCovoit=${idCovoit}&idCollegue=${this.me}`, this.covoiturageCourant);
+    }
+
   }

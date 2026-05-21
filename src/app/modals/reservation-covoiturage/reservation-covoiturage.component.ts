@@ -17,4 +17,8 @@ export class ReservationCovoiturageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  reserverCovoiturage(){
+    this.dataSrv.reserverCovoiturage().subscribe();
+  }
+
 }
