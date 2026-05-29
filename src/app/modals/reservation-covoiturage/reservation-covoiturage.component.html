@@ -11,5 +11,5 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-danger" (click)="activeModal.dismiss('Cross click')">Annuler</button>
-    <button type="button" class="btn btn-warning" (click)="reserverCovoiturage()">Confirmer</button>
+    <button type="button" class="btn btn-warning" (click)="reserverCovoiturage(); activeModal.dismiss('Cross click')">Confirmer</button>
   </div>
