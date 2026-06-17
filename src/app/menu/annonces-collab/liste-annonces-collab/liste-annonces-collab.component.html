@@ -17,6 +17,7 @@
                 <th>Départ</th>
                 <th>Date/heure</th>
                 <th> </th>
+                <th> </th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@
                 <td>{{annonce.arrive}}</td>
                 <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.heureDepart}}</td>
                 <td><button class="btn btn-light" (click)="afficherDetails(annonce)">Détails</button></td>
+                <td><button class="btn btn-danger" (click)="annulerAnnonce(annonce)">Annuler</button></td>
             </tr>
         </tbody>
     </table>

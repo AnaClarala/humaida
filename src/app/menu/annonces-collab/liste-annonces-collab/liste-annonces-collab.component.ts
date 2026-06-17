@@ -6,6 +6,7 @@ import { Annonce } from '../annonces.domains';
 import { DetailsAnnonceComponent } from 'src/app/modals/details-annonce/details-annonce.component';
 import { element } from 'protractor';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AnnulerAnnonceComponent } from 'src/app/modals/annuler-annonce/annuler-annonce.component';
 
 @Component({
   selector: 'app-liste-annonces-collab',
@@ -43,5 +44,10 @@ export class ListeAnnoncesCollabComponent implements OnInit {
   afficherDetails(annonce: Annonce) {
     this.dataSrv.annonceCourante = annonce;
     this.modalService.open(DetailsAnnonceComponent, { centered: true });
+  }
+
+  annulerAnnonce(annonce : Annonce) {
+    this.dataSrv.annonceCourante = annonce;
+    this.modalService.open(AnnulerAnnonceComponent, {centered: true})
   }
 }
