@@ -4,5 +4,7 @@
         alt="Icone de fermeture">
 </div>
 <div class="modal-body">
-    <button class="btn btn-warning" (click)="annulerAnnonce(); activeModal.dismiss('Cross click')">Confirmer</button>
+    <p>Voulez-vous vraiment annuler cette annonce ? </p>
+    <button class="btn btn-light" (click)="activeModal.dismiss('Cross click')">Annuler</button>
+    <button class="btn btn-danger" (click)="annulerAnnonce(); activeModal.dismiss('Cross click')">Confirmer</button>
 </div>

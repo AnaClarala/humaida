@@ -25,7 +25,7 @@ export class ListeAnnoncesCollabService {
     }
 
     annulerAnnonce() : Observable<Annonce> {
-        return this.http.delete<Annonce>(`${environment.baseUrl}covoiturage?id=${this.annonceCourante}`);
+        return this.http.delete<Annonce>(`${environment.baseUrl}covoiturage?id=${this.annonceCourante.id}`);
     }
 
 }
