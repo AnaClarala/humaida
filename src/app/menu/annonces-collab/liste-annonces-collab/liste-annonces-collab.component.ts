@@ -19,10 +19,10 @@ export class ListeAnnoncesCollabComponent implements OnInit {
   @Input() listHist: Annonce[] = [];
   page: number = 1;
   today = new Date();
-  parametre : string;
+  parametre: string;
 
   constructor(private srv: AuthService, private dataSrv: ListeAnnoncesCollabService, private modalService: NgbModal, private route: ActivatedRoute) {
-    
+
   }
 
   ngOnInit(): void {
@@ -37,7 +37,7 @@ export class ListeAnnoncesCollabComponent implements OnInit {
           this.listHist.push(annonce)
         }
       }));
-      this.parametre = this.route.snapshot.queryParamMap.get("publication")
+    this.parametre = this.route.snapshot.queryParamMap.get("publication")
   }
 
 
@@ -46,8 +46,8 @@ export class ListeAnnoncesCollabComponent implements OnInit {
     this.modalService.open(DetailsAnnonceComponent, { centered: true });
   }
 
-  annulerAnnonce(annonce : Annonce) {
+  annulerAnnonce(annonce: Annonce) {
     this.dataSrv.annonceCourante = annonce;
-    this.modalService.open(AnnulerAnnonceComponent, {centered: true})
+    this.modalService.open(AnnulerAnnonceComponent, { centered: true })
   }
 }

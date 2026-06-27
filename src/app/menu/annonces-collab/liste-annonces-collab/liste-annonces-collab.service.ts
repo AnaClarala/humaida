@@ -25,7 +25,11 @@ export class ListeAnnoncesCollabService {
     }
 
     annulerAnnonce() : Observable<Annonce> {
-        return this.http.delete<Annonce>(`${environment.baseUrl}covoiturage?id=${this.annonceCourante.id}`);
+        let annonce = new Annonce(this.annonceCourante);
+        annonce.collegueId = this.me;
+        annonce.status = "ANNULER";
+        this.annonceCourante = annonce;
+        return this.http.put<Annonce>(`${environment.baseUrl}covoiturage`, this.annonceCourante);
     }
 
 }

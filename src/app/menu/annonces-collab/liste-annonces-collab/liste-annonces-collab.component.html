@@ -7,7 +7,6 @@
     </div>
 </div>
 <div class="alert alert-success mt-4" *ngIf = "parametre==='ok'"> Votre publication a bien été ajoutée !</div>
-<div class="alert alert-danger mt-4" *ngIf = "parametre==='annule'"> Votre annonce a bien été annulée !</div>
 <div>
     <h4>Annonces en cours : </h4>
     <div class="alert alert-warning" *ngIf="list.length===0">Aucune annonce en cours</div>
@@ -27,7 +26,10 @@
                 <td>{{annonce.arrive}}</td>
                 <td>{{annonce.date | date:'dd/MM/yyyy'}} {{annonce.heureDepart}}</td>
                 <td><button class="btn btn-light" (click)="afficherDetails(annonce)">Détails</button></td>
-                <td><button class="btn btn-danger" (click)="annulerAnnonce(annonce)">Annuler</button></td>
+                <td>
+                    <button class="btn btn-danger" *ngIf="annonce.status !== 'ANNULER'" (click)="annulerAnnonce(annonce)">Annuler</button>
+                    <div class = "alert alert-danger" *ngIf="annonce.status === 'ANNULER'">Annonce annulée</div>
+                </td>
             </tr>
         </tbody>
     </table>

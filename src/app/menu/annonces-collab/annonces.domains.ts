@@ -10,6 +10,7 @@ export class Annonce {
     date: Date;
     heureDepart : Time;
     collegueId: number;
+    status: string;
 
     constructor(params: any) {
         Object.assign(this, params);
