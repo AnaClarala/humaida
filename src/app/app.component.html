@@ -5,3 +5,7 @@
 <main class="container">
   <router-outlet></router-outlet>
 </main>
+
+<div *ngIf="collegueConnecte | async as col">
+  <app-footer *ngIf="recupChemin() != '/connexion' && !col.estAnonyme()"></app-footer>
+</div>

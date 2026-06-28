@@ -33,6 +33,7 @@ import { DetailsAnnonceComponent } from './modals/details-annonce/details-annonc
 import { CreerVehiculeModalComponent } from './modals/creer-vehicule-modal/creer-vehicule-modal.modal';
 import { DetailsComponent } from './menu/vehicules-admin/Details/details.component';
 import { AnnulerAnnonceComponent } from './modals/annuler-annonce/annuler-annonce.component';
+import { FooterComponent } from './footer/footer/footer.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { AnnulerAnnonceComponent } from './modals/annuler-annonce/annuler-annonc
     CreerVehiculeModalComponent,
     DetailsComponent,
     AnnulerAnnonceComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

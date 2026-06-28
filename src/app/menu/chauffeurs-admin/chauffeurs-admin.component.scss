@@ -1,0 +1,85 @@
+p {
+    margin: 0;
+}
+
+@font-face {
+    font-family: Pacifico;
+    src: url('/assets/fonts/Pacifico-Regular.ttf') format("opentype");
+  }
+
+.titreSection {
+    font-family: 'Pacifico';
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.contRech {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+        text-align: center;
+    }
+
+    label {
+        cursor: pointer;
+        transition: 0.2s;
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        background-color: #363B41;
+        color: #ffaa20;
+        margin: 0;
+    }
+
+    .inputRech, select {
+        position: relative;
+        padding: 7px;
+        transition: 0.5s;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        border-left: none;
+    }
+
+    select {
+        border: 2px solid black;
+        padding: 7px;
+        border-left: none;
+        cursor: pointer;
+    }
+
+    option {
+        cursor: pointer;
+    }
+
+    .inputRech:focus, select:focus {
+        outline: none;
+    }
+
+    .search {
+        width: 35px;
+        height: 35px;
+        filter: contrast(0.0);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .search:hover {
+        filter: contrast(1);
+        transform: rotate(90deg);
+    }
+}
+
+.contFiltre {
+    margin-top: 50px;
+    text-align: center;
+
+    input, label {
+        cursor: pointer;
+    }
+}

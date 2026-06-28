@@ -15,7 +15,7 @@ export class AuthInterceptorService  implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    const cRequest = req.clone({
+    const cRequest = req.clone((req.url.startsWith("https://api-adresse.data.gouv.fr"))?{}:{
       withCredentials: true
     });
 
