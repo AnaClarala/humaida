@@ -31,5 +31,5 @@ export class ListeAnnoncesCollabService {
         this.annonceCourante = annonce;
         return this.http.put<Annonce>(`${environment.baseUrl}covoiturage`, this.annonceCourante);
     }
-
+    
 }
