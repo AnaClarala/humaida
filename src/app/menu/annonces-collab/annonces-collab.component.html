@@ -7,22 +7,20 @@
             <form #form="ngForm">
                 <h2>Itinéraire</h2>
                 <div class="form-group" [ngClass]="{'was-validated' : depart.dirty}">
-                    <input #depart="ngModel" required [(ngModel)]=covoiturageFormulaire.depart name="depart" type="text"
-                        class="form-control" placeholder="Départ *">
+                    <input #depart="ngModel" required [(ngModel)]=covoiturageFormulaire.depart
+                        [ngbTypeahead]="this.search" name="depart" type="text" class="form-control"
+                        placeholder="Départ *">
                     <p *ngIf="depart.dirty && depart.invalid" class="invalid-feedback">
                         L'adresse de départ est obligatoire.
                     </p>
                 </div>
                 <div class="form-group" [ngClass]="{'was-validated' : destination.dirty}">
                     <input #destination="ngModel" required [(ngModel)]=covoiturageFormulaire.destination
-                        name="destination" type="text" class="form-control" placeholder="Destination *">
+                        [ngbTypeahead]="this.search1" name="destination" type="text" class="form-control"
+                        placeholder="Destination *">
                     <p *ngIf="destination.dirty && destination.invalid" class="invalid-feedback">
                         L'adresse de destination est obligatoire.
                     </p>
-                </div>
-                <div class="form-group">
-                    <p>Durée du trajet : (à faire)</p>
-                    <p>Distance : (à faire)</p>
                 </div>
                 <h2>Véhicule</h2>
                 <div class="form-group" [ngClass]="{'was-validated' : marqueVoiture.dirty}">
@@ -58,9 +56,9 @@
                         </p>
                     </div>
                     <div class="form-group col-4" [ngClass]="{'was-validated' : horaire.dirty}">
-                        <input #horaire="ngModel"type="time" required [(ngModel)]=covoiturageFormulaire.horaire name="horaire"  class="form-control">
-                        <p *ngIf="horaire.dirty && horaire.invalid"
-                            class="invalid-feedback">
+                        <input #horaire="ngModel" type="time" required [(ngModel)]=covoiturageFormulaire.horaire
+                            name="horaire" class="form-control">
+                        <p *ngIf="horaire.dirty && horaire.invalid" class="invalid-feedback">
                             L'horaire de départ est obligatoire.
                         </p>
                     </div>
