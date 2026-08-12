@@ -4,6 +4,10 @@ import { AnnoncesCollabService } from './annonces-collab.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationCovoiturageComponent } from 'src/app/modals/confirmation-covoiturage/confirmation-covoiturage.component';
 import { Time } from '@angular/common';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AdressesService } from 'src/app/services/adresses.service';
+
 
 
 export interface CovoiturageFormulaire {
@@ -30,7 +34,7 @@ export class AnnoncesCollabComponent implements OnInit {
   todayString = new Date().toISOString().substring(0,10);
   covoiturageFormulaire: CovoiturageFormulaire = {};
 
-  constructor(private srv: AuthService, private annonceCollabSrv: AnnoncesCollabService, private modalService: NgbModal) { }
+  constructor(private srv: AuthService, private annonceCollabSrv: AnnoncesCollabService, private modalService: NgbModal, private adressesSrv: AdressesService) { }
 
   ngOnInit(): void {
 
@@ -55,5 +59,46 @@ export class AnnoncesCollabComponent implements OnInit {
     this.annonceCollabSrv.creerCovoiturage(this.covoiturageFormulaire)
     this.modalService.open(ConfirmationCovoiturageComponent, { centered: true })
   }
+
+  search = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      map(term => {
+        if(term.length < 2 ) {
+           return []; 
+        } else {
+          let tableAdresses = [];
+          this.adressesSrv.getAdresseBDD(this.covoiturageFormulaire.depart).subscribe(data => { 
+            data.features.forEach(element => {
+              tableAdresses.push(element.properties.name+", "+element.properties.postcode+" "+element.properties.city);
+            });
+          });
+          
+          return tableAdresses;
+        }
+      }
+    ),
+    debounceTime(1000));
+
+    search1 = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      map(term => {
+        if(term.length < 2 ) {
+           return []; 
+        } else {
+          let tableAdresses = [];
+          this.adressesSrv.getAdresseBDD(this.covoiturageFormulaire.destination).subscribe(data => { 
+            data.features.forEach(element => {
+              tableAdresses.push(element.properties.name+", "+element.properties.postcode+" "+element.properties.city);
+            });
+          });
+          return tableAdresses;
+        }
+      }
+    ),
+    debounceTime(1000));
 }
 
