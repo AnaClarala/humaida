@@ -1,6 +1,7 @@
 import { Time } from '@angular/common';
 
 export class Annonce {
+    id? : number;
     depart : string;
     arrive : string;
     marqueVoiture: string;
@@ -9,6 +10,7 @@ export class Annonce {
     date: Date;
     heureDepart : Time;
     collegueId: number;
+    status: string;
 
     constructor(params: any) {
         Object.assign(this, params);
