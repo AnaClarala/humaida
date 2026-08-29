@@ -24,4 +24,12 @@ export class ListeAnnoncesCollabService {
         return this.http.get<Annonce[]>(`${environment.baseUrl}covoiturage/annonce-covoiturage?id=${this.me}`)
     }
 
+    annulerAnnonce() : Observable<Annonce> {
+        let annonce = new Annonce(this.annonceCourante);
+        annonce.collegueId = this.me;
+        annonce.status = "ANNULER";
+        this.annonceCourante = annonce;
+        return this.http.put<Annonce>(`${environment.baseUrl}covoiturage`, this.annonceCourante);
+    }
+    
 }
