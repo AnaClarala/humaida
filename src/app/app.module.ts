@@ -34,6 +34,7 @@ import { CreerVehiculeModalComponent } from './modals/creer-vehicule-modal/creer
 import { DetailsComponent } from './menu/vehicules-admin/Details/details.component';
 import { AnnulerAnnonceComponent } from './modals/annuler-annonce/annuler-annonce.component';
 import { FooterComponent } from './footer/footer/footer.component';
+import { ReservationCovoiturageComponent } from './modals/reservation-covoiturage/reservation-covoiturage.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { FooterComponent } from './footer/footer/footer.component';
     DetailsAnnonceComponent,
     CreerVehiculeModalComponent,
     DetailsComponent,
+    ReservationCovoiturageComponent,
     AnnulerAnnonceComponent,
     FooterComponent
   ],
