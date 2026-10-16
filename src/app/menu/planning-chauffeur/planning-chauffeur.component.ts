@@ -8,12 +8,28 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class PlanningChauffeurComponent implements OnInit {
 
-  constructor(private srv: AuthService) { }
+
+  dateNow = new Date();
+  dateNext = new Date();
+  
+
+  constructor(private srv: AuthService) { 
+  }
 
   ngOnInit(): void {
     if (localStorage.getItem('status') != 'Chauffeur') {
       this.srv.secuRoute()
     }
+    this.dateNext.setDate(this.dateNext.getDate()+7);
   }
 
+
+  semainePrecedente() {
+    this.dateNow.setDate(this.dateNow.getDate() - 7);
+    this.dateNext.setDate(this.dateNext.getDate() - 7);
+  }
+  semaineSuivante() {
+    this.dateNow.setDate(this.dateNow.getDate() + 7);
+    this.dateNext.setDate(this.dateNext.getDate() + 7);
+  }
 }
