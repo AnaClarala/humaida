@@ -5,10 +5,10 @@
 <div class="contFiltre">
     <h2>Filtrer:</h2>
     <div class="form-check form-check-inline">
-        <input #idChauffeur class="form-check-input" type="radio" (click)="idChauffeur.checked" name="inlineRadioOptions"
+        <input #mat class="form-check-input" type="radio" (click)="mat.checked" name="inlineRadioOptions"
             id="inlineRadio1">
         <label class="form-check-label" for="inlineRadio1">
-            Id
+            Matricule
         </label>
     </div>
     <div class="form-check form-check-inline">
@@ -25,23 +25,62 @@
             Prénom
         </label>
     </div>
-    <div *ngIf="idChauffeur.checked" class="contRech">
-        <label for="idCha">Id:</label>
-        <input #rechId name="idCha" class="inputRech" type="text" placeholder="ex : 1">
-        <img class="search" src="assets/img/search.png" alt="Icone de recherche">
+    <div *ngIf="mat.checked" class="contRech">
+        <label for="matri">Matricule:</label>
+        <input #rechMat name="matri" class="inputRech" type="text" placeholder="ex : 1">
+        <img class="search" src="assets/img/search.png" (click)="findByMatricule(rechMat.value)" alt="Icone de recherche">
     </div>
     <div *ngIf="nom.checked" class="contRech">
         <label for="nomCha">Nom:</label>
         <input #rechNom name="nomCha" class="inputRech" type="text" placeholder="ex: Zouzou">
-        <img class="search" src="assets/img/search.png" alt="Icone de recherche">
+        <img class="search" src="assets/img/search.png" (click)="findByNom(rechNom.value)" alt="Icone de recherche">
     </div>
     <div *ngIf="prenom.checked" class="contRech">
         <label for="prenomCha">Prénom:</label>
         <input #rechPrenom name="prenomCha" class="inputRech" type="text" placeholder="ex: Mouloud">
-        <img class="search" src="assets/img/search.png" alt="Icone de recherche">
+        <img class="search" src="assets/img/search.png" (click)="findByPrenom(rechPrenom.value)" alt="Icone de recherche">
     </div>
 
-    <div *ngIf="idChauffeur.checked || nom.checked || prenom.checked">
-        <button class="btn btn-danger mt-2">Effacer les filtres</button>
+    <div *ngIf="mat.checked || nom.checked || prenom.checked">
+        <button class="btn btn-danger mt-2" (click)="noFilter(mat, nom, prenom)">Effacer les filtres</button>        
     </div>
 </div>
+
+<div class="contAllChauffeurs">
+    <div #chauf *ngFor="let chauffeur of tabChauffeurs" class="contChauffeur">
+        <div class="photoC">
+            <img src="{{chauffeur.urlImage}}"
+                onError="this.onerror=null;this.src='/assets/img/cactus.png';"
+                alt="Photo du chauffeur">
+        </div>
+        <div class="infosC">
+            <div class="nom info">
+                <div>
+                    <p>Nom:</p>
+                </div>
+                <p>{{chauffeur.info.nom}}</p>
+            </div>
+            <div class="prenom info">
+                <div><p>Prénom:</p></div>
+                <p>{{chauffeur.info.prenom}}</p>
+            </div>
+            <div class="permis info">
+                <div><p>Permis:</p></div>
+                <p>{{chauffeur.permis}}</p>
+            </div>
+            <div class="email info">
+                <div><p>Email:</p></div>
+                <p>{{chauffeur.info.email}}</p>
+            </div>
+            <div class="tel info">
+                <div><p>Téléphone:</p></div>
+                <p>{{chauffeur.telephone}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contAjout">
+    <img src="assets/img/ajout.png" alt="Icone d'ajout" (click)="ajouterChauffeur()">
+</div>
+

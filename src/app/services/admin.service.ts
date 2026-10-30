@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Collegue } from '../auth/auth.domains';
+import { Chauffeur } from '../entite/Chauffeur';
 import { ReservationVehiculeSociete } from '../entite/ReservationVehiculeSociete';
 import { Vehicule } from '../entite/Vehicule';
 
@@ -14,8 +16,11 @@ export class AdminService {
 
   vehiculesSubject = new Subject<Vehicule>();
 
+  chauffeurSubject = new Subject<Chauffeur>();
+
   constructor(private http: HttpClient, private _router: Router) { }
 
+  /* Page vehicules + Détails*/
   recupererAllVehicules(): Observable<Vehicule[]> {
     return this.http.get<Vehicule[]>(`${environment.baseUrl}vehicule`)
   }
@@ -63,5 +68,39 @@ export class AdminService {
 
   pageDetails(idVehicule) {
     this._router.navigateByUrl(`/administrateur/vehicules/${idVehicule}`)
+  }
+
+  /* Page Chauffeurs */
+
+  addToSubC(c: Chauffeur): void {
+    this.chauffeurSubject.next(c)
+  }
+
+  subscibeToChauffeurSub(): Observable<Chauffeur> {
+    return this.chauffeurSubject.asObservable()
+  }
+
+  recupererAllChauffeurs(): Observable<Chauffeur[]> {
+    return this.http.get<Chauffeur[]>(`${environment.baseUrl}chauffeur`)
+  }
+
+  recupererByMatricule(matEntree): Observable<Chauffeur[]> {
+    return this.http.get<Chauffeur[]>(`${environment.baseUrl}chauffeur?type=matricule&value=${matEntree}`)
+  }
+
+  recupererByNom(nomEntree): Observable<Chauffeur[]> {
+    return this.http.get<Chauffeur[]>(`${environment.baseUrl}chauffeur?type=nom&value=${nomEntree}`)
+  }
+
+  recupererByPrenom(prenomEntree): Observable<Chauffeur[]> {
+    return this.http.get<Chauffeur[]>(`${environment.baseUrl}chauffeur?type=prenom&value=${prenomEntree}`)
+  }
+
+  posterChauffeur(chauffeurAPoster: Chauffeur): Observable<Chauffeur> {
+    return this.http.post<Chauffeur>(`${environment.baseUrl}chauffeur`, chauffeurAPoster)
+  }
+
+  recupererAllCollegues(): Observable<Collegue[]> {
+    return this.http.get<Collegue[]>(`${environment.baseUrl}collegue/isNot?role=ROLE_CHAUFFEUR`)
   }
 }

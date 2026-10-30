@@ -1,0 +1,11 @@
+.btnClose {
+    transition: 0.3s;
+    filter: contrast(0.2);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+ }
+ 
+ .btnClose:hover {
+     filter: contrast(1);
+ }
