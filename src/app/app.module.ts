@@ -32,6 +32,7 @@ import { ListeAnnoncesCollabComponent } from './menu/annonces-collab/liste-annon
 import { DetailsAnnonceComponent } from './modals/details-annonce/details-annonce.component';
 import { CreerVehiculeModalComponent } from './modals/creer-vehicule-modal/creer-vehicule-modal.modal';
 import { DetailsComponent } from './menu/vehicules-admin/Details/details.component';
+import { AnnulerAnnonceComponent } from './modals/annuler-annonce/annuler-annonce.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { CreerChauffeurComponent } from './modals/creer-chauffeur/creer-chauffeur.component';
 
@@ -63,6 +64,8 @@ import { CreerChauffeurComponent } from './modals/creer-chauffeur/creer-chauffeu
     DetailsComponent,
     FooterComponent,
     CreerChauffeurComponent,
+    AnnulerAnnonceComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
