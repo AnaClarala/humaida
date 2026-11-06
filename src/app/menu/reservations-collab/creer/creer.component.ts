@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateStruct, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Collegue } from 'src/app/auth/auth.domains';
 import { Covoiturage } from 'src/app/mock/mock-reservations';
+import { ReservationCovoiturageComponent } from 'src/app/modals/reservation-covoiturage/reservation-covoiturage.component';
 import { AdressesService } from 'src/app/services/adresses.service';
 import { ReservationCollabService } from '../reservations-collab.service';
 
@@ -30,7 +31,7 @@ export class CreerComponent implements OnInit {
   listAdresseDepart: string[];
   listAdresseArrive: string[];
 
-  constructor(private adressesSrv: AdressesService, private dataSrv: ReservationCollabService) { }
+  constructor(private adressesSrv: AdressesService, private dataSrv: ReservationCollabService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.adressesSrv.getAdresseSub().subscribe(data => this.listAdresseDepart = data);
@@ -96,6 +97,15 @@ export class CreerComponent implements OnInit {
     
     listerCovoitFuturs(depart: string, arrive: string, date: string){
       return this.dataSrv.listerCovoitFuturs(depart, arrive, date).subscribe(covoit => this.listCovoitAReserver = covoit)
+    }
+
+    getNbPlacesRestantes(covoit: Covoiturage): number{
+      return covoit.place - covoit.passager.length;
+    }
+
+    confirmerResa(covoit: Covoiturage){
+      this.dataSrv.covoiturageCourant = covoit;
+      this.modalService.open(ReservationCovoiturageComponent, { centered: true });
     }
 
     /*

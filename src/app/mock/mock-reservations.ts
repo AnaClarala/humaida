@@ -9,7 +9,9 @@ export class Covoiturage{
     heureDepart: Time;
     marqueVoiture: string;
     modeleVoiture: string;
+    place?: number;
     collegue: Collegue;
+    passager?: Collegue[];
 
     constructor(depart: string, arrive: string, date: Date, heureDepart: Time, marqueVoiture: string, modeleVoiture: string, collegue: Collegue){
         this.depart = depart;
@@ -20,4 +22,7 @@ export class Covoiturage{
         this.modeleVoiture = modeleVoiture;
         this.collegue = collegue;
     }
+
+    
+
 }
