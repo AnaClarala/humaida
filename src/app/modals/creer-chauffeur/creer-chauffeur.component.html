@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h4 class="modal-title">Ajouter un chauffeur :</h4>
+    <img class="btnClose" (click)="activeModal.dismiss('Cross click')" src="assets/img/close.png"
+        alt="Icone de fermeture">
+</div>
+<div class="modal-body">
+    <div *ngIf="erreurTechnique" class="alert alert-danger">
+        <p>Oops.. Erreur lors de l'envoi</p>
+    </div>
+    <form #form="ngForm">
+        <div class="form-group" [ngClass]="{ 'was-validated' : idColl.dirty}">
+            <label for="idCollaborateur">Collaborateur</label>
+            <select class="form-control" #idColl="ngModel" [(ngModel)]="newChauffeur.collegueId" name="idCollaborateur" required>
+                <option *ngFor="let coll of collNoChauTab" value="{{coll.id}}">{{coll.nom}} {{coll.prenom}}</option>
+            </select>
+            <div *ngIf="idColl.dirty && idColl.invalid"  class="invalid-feedback">
+                L'id du collaborateur est obligatoire !
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'was-validated' : permis.dirty}">
+            <label for="permisChau">Permis</label> 
+            <input #permis="ngModel" maxlength="2" [(ngModel)]="newChauffeur.permis" type="text" class="form-control" name="permisChau" placeholder="ex: B" required>
+            <div *ngIf="permis.dirty && permis.invalid"  class="invalid-feedback">
+                Le permis est obligatoire !
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'was-validated' : tel.dirty}">
+            <label for="telephone">Téléphone</label>
+            <input #tel="ngModel" [(ngModel)]="newChauffeur.telephone" minlength="10" type="text" class="form-control" name="telephone" placeholder="ex: 0605020305" required>
+            <div *ngIf="tel.dirty && tel.invalid"  class="invalid-feedback">
+                Le numéro de téléphone est obligatoire ! (minimum 10 numéros)
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'was-validated' : photo.dirty}">
+            <label for="photo">Photo</label>
+            <input #photo="ngModel" type="text" [(ngModel)]="newChauffeur.urlImage" class="form-control" name="photo" placeholder="ex: https://exemple.com" required>
+            <div *ngIf="photo.dirty && photo.invalid"  class="invalid-feedback">
+                L'url de la photo est obligatoire !
+            </div>
+        </div>
+
+        <button [disabled]="form.invalid" class="btn btn-dark" (click)="submitChauffeur()">Ajouter</button>
+    </form>
+</div>
+ 

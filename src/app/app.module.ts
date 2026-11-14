@@ -34,6 +34,7 @@ import { CreerVehiculeModalComponent } from './modals/creer-vehicule-modal/creer
 import { DetailsComponent } from './menu/vehicules-admin/Details/details.component';
 import { AnnulerAnnonceComponent } from './modals/annuler-annonce/annuler-annonce.component';
 import { FooterComponent } from './footer/footer/footer.component';
+import { CreerChauffeurComponent } from './modals/creer-chauffeur/creer-chauffeur.component';
 import { ReservationCovoiturageComponent } from './modals/reservation-covoiturage/reservation-covoiturage.component';
 
 
@@ -62,6 +63,8 @@ import { ReservationCovoiturageComponent } from './modals/reservation-covoiturag
     DetailsAnnonceComponent,
     CreerVehiculeModalComponent,
     DetailsComponent,
+    FooterComponent,
+    CreerChauffeurComponent,
     ReservationCovoiturageComponent,
     AnnulerAnnonceComponent,
     FooterComponent
